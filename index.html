@@ -36,6 +36,14 @@
     <meta name="msapplication-TileImage" content="/PSE/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <title>Pretty Stitched Engraving - Custom Laser Engraving & Cutting</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWZS8F10JE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XWZS8F10JE');
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -1149,6 +1157,7 @@
     </section>
     <footer>
         <p>© 2025 Pretty Stitched Engraving | 5 Hilton Street, Centurion, South Africa, 0157</p>
+        <p id="hit-counter">Page Views: 0</p>
         <div class="footer-links">
             <a href="mailto:prettystitchedengraving@gmail.com">Contact Us</a>
             <a href="https://www.tiktok.com/@diedrake" target="_blank" rel="noopener noreferrer">TikTok</a>
@@ -1362,6 +1371,33 @@
             heroImage.style.opacity = 0;
             heroImage.src = '/PSE/pseLogoO.jpg';
         });
+
+        // Google Analytics Event Tracking for "Call Us" and "Contact" links
+        document.querySelectorAll('.contact-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const label = e.target.textContent.trim(); // e.g., "Call Us", "Email", etc.
+                gtag('event', 'click', {
+                    'event_category': 'Menu Interaction',
+                    'event_label': label,
+                    'value': 1
+                });
+            });
+        });
+
+        // Track WhatsApp button clicks
+        document.querySelector('.whatsapp-button').addEventListener('click', () => {
+            gtag('event', 'click', {
+                'event_category': 'Menu Interaction',
+                'event_label': 'WhatsApp',
+                'value': 1
+            });
+        });
+
+        // Optional: Simple visible hit counter using localStorage
+        let pageViews = localStorage.getItem('pageViews') || 0;
+        pageViews++;
+        localStorage.setItem('pageViews', pageViews);
+        document.getElementById('hit-counter').textContent = `Page Views: ${pageViews}`;
     </script>
 </body>
 </html>
