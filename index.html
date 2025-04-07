@@ -605,7 +605,7 @@
 
         #about {
             min-height: auto;
-            text-align: center; /* Center-align all content in the About Us section */
+            /* Removed text-align: center to allow text to fill container naturally */
         }
 
         #products, #gallery, #contact {
@@ -671,22 +671,22 @@
             display: flex;
             flex-wrap: wrap;
             gap: 3rem;
-            justify-content: center; /* Center-align the content horizontally */
-            align-items: center; /* Center-align the content vertically */
+            justify-content: center; /* Keep the section centered overall */
+            align-items: center;
         }
 
         .about-text {
             flex: 1;
             min-width: 300px;
-            max-width: 600px; /* Limit the width for better readability */
-            text-align: center; /* Center-align the text */
+            max-width: 900px; /* Increased max-width to fill more of the container */
+            /* Removed text-align: center to allow text to stretch naturally */
         }
 
         .about-text p {
             line-height: 1.8;
             color: var(--text-muted);
             font-size: 1.1rem;
-            margin: 0 auto; /* Center-align paragraphs */
+            /* Removed margin: 0 auto to allow text to fill the container */
         }
 
         .carousel-container {
@@ -1419,7 +1419,7 @@
                 console.log('Cloudflare API Response:', data);
             } catch (error) {
                 console.error('Error fetching unique visitors:', error);
-                document.getElementById('hit-counter').textContent = 'Unique Visitors: Counting...';
+                document.getElementById('hit-counter').textContent = 'Unique Visitors: 0'; // Show 0 instead of "Counting..."
             }
         }
 
