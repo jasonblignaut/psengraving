@@ -1377,50 +1377,37 @@
             heroImage.src = '/PSE/pseLogoO.jpg';
         });
 
-        // Cloudflare Analytics API for unique visitors
+        // Fetch unique visitors from the Cloudflare Worker
         async function fetchLifetimeUniqueVisitors() {
-            const apiToken = 'dOJV_0bgdnypo9u36OpeIUz02NA4POzRl4K2fmj5';
-            const zoneId = '2eddb967f27bdca0d8d2594d2c385780';
-            const currentDate = "2025-04-07"; // Hardcoded to match the working curl command
-
-            const query = `
-                query {
-                    viewer {
-                        zones(filter: { zoneTag: "${zoneId}" }) {
-                            httpRequests1dGroups(
-                                limit: 1
-                                filter: { date_geq: "${currentDate}", date_leq: "${currentDate}" }
-                            ) {
-                                uniq {
-                                    uniques
-                                }
-                            }
-                        }
-                    }
-                }
-            `;
-
-            // Make the API request
-            const response = await fetch('https://api.cloudflare.com/client/v4/graphql', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${apiToken}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ query })
+          try {
+            const response = await fetch('https://livecounter.1fardigital.workers.dev', {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+              },
             });
 
-            console.log('Response Status:', response.status, response.statusText); // Log the HTTP status
+            console.log('Worker Response Status:', response.status, response.statusText); // Log the HTTP status
 
             const data = await response.json();
-            console.log('Cloudflare API Response:', data); // Log the full response
+            console.log('Worker API Response:', data); // Log the full response
 
-            // Parse the response
-            const uniques = data.data.viewer.zones[0].httpRequests1dGroups[0].uniq.uniques;
+            if (data.error) {
+              console.error('Worker Error:', data.error, data.details);
+              document.getElementById('hit-counter').textContent = 'Unique Visitors: Error';
+              return;
+            }
+
+            // Extract the unique visitor count
+            const uniques = data.uniques;
             console.log('Extracted Unique Visitors:', uniques); // Log the extracted value
 
             // Update the hit counter
             document.getElementById('hit-counter').textContent = `Unique Visitors: ${uniques}`;
+          } catch (error) {
+            console.error('Fetch Error:', error);
+            document.getElementById('hit-counter').textContent = 'Unique Visitors: Error';
+          }
         }
 
         // Call on page load
