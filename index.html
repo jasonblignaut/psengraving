@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pretty Stitched Engraving offers custom laser engraving and cutting services in Centurion, South Africa. Discover personalized gifts, tumblers, and more with our expert craftsmanship.">
-    <meta name="keywords" content="laser engraving Centurion, custom engraving South Africa, personalized gifts, laser cutting Centurion, custom tumblers, Pretty Stitched Engraving">
+    <meta name="description" content="Pretty Stitched Engraving - Custom laser cutting and engraving services in Centurion, South Africa. Explore our products and craftsmanship.">
+    <meta name="keywords" content="Laser Engraving, Custom Engraving, Laser Cutting, Personalized Gifts, Custom Tumblers, Pretty Stitched Engraving, Centurion, South Africa">
     <meta name="author" content="Pretty Stitched Engraving">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Pretty Stitched Engraving - Custom Laser Engraving in Centurion, South Africa">
-    <meta property="og:description" content="Expert laser engraving and cutting services in Centurion, South Africa. Personalized gifts, tumblers, and more at Pretty Stitched Engraving.">
+    <meta property="og:title" content="Pretty Stitched Engraving - Laser Engraving & Custom Engraving">
+    <meta property="og:description" content="Custom laser cutting and engraving services in Centurion, South Africa. Discover personalized gifts and craftsmanship at Pretty Stitched Engraving.">
     <meta property="og:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
-    <meta property="og:url" content="https://engravinglaser.co.za/PSE/index.html">
+    <meta property="og:url" content="https://engravinglaser.co.za">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pretty Stitched Engraving - Custom Laser Engraving in Centurion, South Africa">
-    <meta name="twitter:description" content="Expert laser engraving and cutting services in Centurion, South Africa. Personalized gifts, tumblers, and more.">
+    <meta name="twitter:title" content="Pretty Stitched Engraving - Laser Engraving & Custom Engraving">
+    <meta name="twitter:description" content="Custom laser cutting and engraving services">
     <meta name="twitter:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
     <link rel="icon" type="image/x-icon" href="/PSE/pseLogoO.ico">
     <link rel="apple-touch-icon" href="/PSE/pseLogoO.jpg">
     <link rel="preload" href="/PSE/pseLogoO.jpg" as="image">
     <link rel="preload" href="/PSE/background.jpg" as="image">
-    <title>Pretty Stitched Engraving - Custom Laser Engraving & Cutting in Centurion, South Africa</title>
+    <title>Pretty Stitched Engraving - Laser Engraving & Custom Engraving</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -30,8 +30,8 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Pretty Stitched Engraving",
-      "description": "Custom laser engraving and cutting services in Centurion, South Africa. Specializing in personalized gifts, tumblers, and more.",
-      "url": "https://engravinglaser.co.za/PSE/index.html",
+      "description": "Custom laser cutting and engraving services in South Africa.",
+      "url": "https://engravinglaser.co.za",
       "telephone": "+27832227144",
       "address": {
         "@type": "PostalAddress",
@@ -47,6 +47,7 @@
         "https://www.facebook.com/share/1AGJEC1RfQ/?mibextid=wwXIfr"
       ],
       "image": "https://engravinglaser.co.za/PSE/pseLogoO.jpg",
+      "keywords": "laser engraving, custom engraving, laser cutting, personalized gifts, Centurion, South Africa",
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": -25.8603,
@@ -69,6 +70,9 @@
             --text-light: #e4e4e4;
             --text-muted: #d0d0d0;
             --glow-intensity: 20px;
+            --spark-yellow: #ffeb3b;
+            --spark-orange: #ff9800;
+            --spark-white: #ffffff;
         }
 
         * {
@@ -105,15 +109,16 @@
             top: 0;
         }
 
+        /* Enhanced Mouse Trail with Engraving Sparks */
         .engraving-spark {
             position: fixed;
             width: 5px;
             height: 5px;
-            background: linear-gradient(45deg, var(--primary-color), #ffffff, var(--secondary-color));
+            background: linear-gradient(45deg, var(--spark-yellow), var(--spark-orange), var(--spark-white));
             pointer-events: none;
             z-index: 10001;
             opacity: 0.8;
-            box-shadow: 0 0 10px var(--primary-color), 0 0 15px var(--secondary-color);
+            box-shadow: 0 0 10px var(--spark-yellow), 0 0 15px var(--spark-orange), 0 0 20px var(--spark-white);
             animation: engravingFlicker 0.4s ease-out forwards;
         }
 
@@ -121,11 +126,11 @@
             position: fixed;
             width: 3px;
             height: 8px;
-            background: linear-gradient(var(--primary-color), transparent);
+            background: linear-gradient(var(--spark-yellow), transparent);
             pointer-events: none;
             z-index: 10001;
             opacity: 0.6;
-            box-shadow: 0 0 5px var(--primary-color);
+            box-shadow: 0 0 5px var(--spark-orange), 0 0 10px var(--spark-white);
             animation: flareBurst 0.5s ease-out forwards;
         }
 
@@ -480,7 +485,7 @@
             border-radius: 20px;
             overflow: hidden;
             opacity: 0;
-            animation: fadeIn 2s forwards 0.5s;
+            animation: fadeIn 2s forwards 1s;
             z-index: 1;
         }
 
@@ -682,6 +687,24 @@
             font-size: 1.1rem;
         }
 
+        /* Fancy Hyperlinks in About Us */
+        .about-text a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            background: linear-gradient(90deg, rgba(0, 170, 255, 0.2), rgba(255, 0, 255, 0.2));
+        }
+
+        .about-text a:hover, .about-text a:focus {
+            color: var(--secondary-color);
+            text-shadow: 0 0 5px var(--secondary-color);
+            background: linear-gradient(90deg, rgba(0, 170, 255, 0.4), rgba(255, 0, 255, 0.4));
+        }
+
         .carousel-container {
             max-width: 1200px;
             margin: 0 auto 5rem auto;
@@ -753,26 +776,6 @@
         .carousel-controls button:hover, .carousel-controls button:focus {
             transform: scale(1.1);
             box-shadow: 0 0 calc(var(--glow-intensity) * 1.5) var(--primary-color);
-        }
-
-        @media (max-width: 768px) {
-            .carousel-item {
-                min-width: 50%;
-            }
-
-            .carousel-item .image-wrapper {
-                padding-top: 75%; /* 4:3 aspect ratio for smaller screens */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .carousel-item {
-                min-width: 100%;
-            }
-
-            .carousel-item .image-wrapper {
-                padding-top: 100%; /* 1:1 aspect ratio for mobile */
-            }
         }
 
         .video-gallery {
@@ -854,52 +857,6 @@
         .see-more-btn:hover, .see-more-btn:focus {
             box-shadow: 0 0 calc(var(--glow-intensity) * 2) var(--primary-color);
             transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .video-gallery {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 3rem;
-            }
-
-            .video-item {
-                width: 90%;
-                max-width: 350px;
-                transform: rotate(2deg);
-                margin: 1rem 0;
-                position: relative;
-            }
-
-            .video-item:nth-child(even) {
-                transform: rotate(-2deg);
-                margin-left: 2rem;
-            }
-
-            .video-item::before {
-                content: '';
-                position: absolute;
-                top: -10px;
-                left: -10px;
-                right: -10px;
-                bottom: -10px;
-                border: 2px dashed var(--primary-color);
-                border-radius: 20px;
-                z-index: -1;
-                opacity: 0.7;
-                animation: laserFramePulse 3s infinite;
-            }
-
-            @keyframes laserFramePulse {
-                0% { opacity: 0.7; transform: scale(1); }
-                50% { opacity: 0.4; transform: scale(1.02); }
-                100% { opacity: 0.7; transform: scale(1); }
-            }
-
-            .video-item.hidden {
-                display: none;
-            }
         }
 
         .contact {
@@ -986,6 +943,7 @@
             text-shadow: 0 0 10px var(--secondary-color);
         }
 
+        /* Mobile Optimizations for 2025perfection */
         @media (max-width: 768px) {
             .audio-overlay button {
                 font-size: 1.2rem;
@@ -994,6 +952,7 @@
 
             header {
                 justify-content: space-between;
+                padding: 0.5rem 1rem;
             }
 
             .hamburger {
@@ -1003,12 +962,12 @@
             nav {
                 display: none;
                 position: fixed;
-                top: 80px;
+                top: 60px;
                 left: 0;
                 right: 0;
                 background: rgba(26, 26, 46, 0.95);
                 flex-direction: column;
-                padding: 2.5rem;
+                padding: 2rem;
                 box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
             }
 
@@ -1017,17 +976,22 @@
             }
 
             nav a {
-                margin: 1.5rem 0;
-                font-size: 1.3rem;
+                margin: 1rem 0;
+                font-size: 1.2rem;
             }
 
             .about-content {
                 flex-direction: column;
                 text-align: center;
+                gap: 2rem;
+            }
+
+            .about img {
+                max-width: 250px;
             }
 
             .hero {
-                padding: 1.5rem;
+                padding: 2rem;
             }
 
             .hero img {
@@ -1062,6 +1026,58 @@
                 height: 50px;
                 font-size: 1.5rem;
             }
+
+            .carousel-item {
+                min-width: 50%;
+            }
+
+            .carousel-item .image-wrapper {
+                padding-top: 75%; /* 4:3 aspect ratio for smaller screens */
+            }
+
+            .video-gallery {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .video-item {
+                width: 90%;
+                max-width: 350px;
+                transform: rotate(2deg);
+                margin: 1rem 0;
+                position: relative;
+            }
+
+            .video-item:nth-child(even) {
+                transform: rotate(-2deg);
+                margin-left: 1rem;
+            }
+
+            .video-item::before {
+                content: '';
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+                border: 2px dashed var(--primary-color);
+                border-radius: 20px;
+                z-index: -1;
+                opacity: 0.7;
+                animation: laserFramePulse 3s infinite;
+            }
+
+            @keyframes laserFramePulse {
+                0% { opacity: 0.7; transform: scale(1); }
+                50% { opacity: 0.4; transform: scale(1.02); }
+                100% { opacity: 0.7; transform: scale(1); }
+            }
+
+            .video-item.hidden {
+                display: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1071,7 +1087,7 @@
             }
 
             section {
-                padding: 3rem 1rem;
+                padding: 3rem 0.5rem;
             }
 
             .hero h1 {
@@ -1080,6 +1096,23 @@
 
             .hero p {
                 font-size: clamp(1rem, 2.5vw, 1.2rem);
+            }
+
+            .carousel-item {
+                min-width: 100%;
+            }
+
+            .carousel-item .image-wrapper {
+                padding-top: 100%; /* 1:1 aspect ratio for mobile */
+            }
+
+            .about-text p {
+                font-size: 1rem;
+            }
+
+            .contact-links a {
+                font-size: 1rem;
+                padding: 0.4rem 1rem;
             }
         }
 
@@ -1094,7 +1127,7 @@
     <a href="#main-content" class="skip-link">Skip to content</a>
     <div class="preloader"></div>
     <div class="audio-overlay">
-        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER PRETTY STITCHED ENGRAVING</button>
+        <button aria-label="Enter Pretty Stitched Engraving">ENTER PRETTY STITCHED ENGRAVING</button>
     </div>
     <div class="background"></div>
     <div class="fullscreen-viewer">
@@ -1112,22 +1145,22 @@
     </header>
     <a href="#" class="back-to-top" title="Back to Top" aria-label="Back to Top">↑</a>
     <a href="https://wa.me/27832227144" class="whatsapp-button" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
-        <img src="/PSE/whatsapp.jpg" alt="WhatsApp Icon for Pretty Stitched Engraving Contact" loading="lazy">
+        <img src="/PSE/whatsapp.jpg" alt="WhatsApp Icon" loading="lazy">
     </a>
     <button class="audio-toggle" title="Toggle Music" aria-label="Toggle Background Music">♫</button>
     <section class="hero" id="main-content">
-        <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo - Custom Laser Engraving in Centurion, South Africa" id="hero-image" loading="eager">
+        <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo - Laser Engraving" id="hero-image" loading="eager">
         <h1>Pretty Stitched Engraving</h1>
-        <p>Custom Laser Cutting & Engraving Services in Centurion, South Africa</p>
+        <p>Custom Laser Cutting & Engraving | Centurion, South Africa</p>
         <a href="#products" class="cta-button">Explore Our Creations</a>
     </section>
     <section id="about" class="about">
         <div class="about-content">
-            <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo - Expert Laser Engraving Services" loading="lazy">
+            <img src="/PSE/aboutus.jpg" alt="Pretty Stitched Engraving - About Us Image" loading="lazy">
             <div class="about-text">
-                <h2>About Pretty Stitched Engraving</h2>
-                <p>Welcome to Pretty Stitched Engraving, your premier destination for custom laser cutting and engraving services in Centurion, South Africa. We specialize in creating high-quality, personalized engraved products that make perfect gifts or keepsakes for any occasion.</p>
-                <p>Located at 5 Hilton Street, Centurion, Gauteng, 0157, our team brings precision, creativity, and passion to every project. Whether you're looking for custom tumblers, engraved keepsakes, or unique laser-cut designs, we’re here to bring your ideas to life. Contact us at 083 222 7144 or email us at <a href="mailto:prettystitchedengraving@gmail.com">prettystitchedengraving@gmail.com</a> to discuss your next project!</p>
+                <h2>About Us</h2>
+                <p>Laser cutting service based in Centurion. We specialise in creating personalised, high quality engraved products that make perfect gifts or keepsakes.</p>
+                <p>Contact us at <a href="tel:+27832227144">0832227144</a> or <a href="mailto:prettystitchedengraving@gmail.com">prettystitchedengraving@gmail.com</a> to bring your ideas to life!</p>
             </div>
         </div>
     </section>
@@ -1175,42 +1208,42 @@
     <section id="gallery">
         <h2>Video Gallery</h2>
         <div class="video-gallery">
-            <div class="video-item"><video src="/PSE/Indigo Pet drive 2025.mp4" controls muted poster="/PSE/Indigo Pet drive 2025.png" loading="lazy" aria-label="Indigo Pet Drive 2025 Video"></video></div>
-            <div class="video-item"><video src="/PSE/Personalized pool cue.mp4" controls muted poster="/PSE/Personalized pool cue.png" loading="lazy" aria-label="Personalized Pool Cue Video"></video></div>
-            <div class="video-item"><video src="/PSE/Christmas present.mp4" controls muted poster="/PSE/Christmas present.png" loading="lazy" aria-label="Christmas Present Video"></video></div>
-            <div class="video-item"><video src="/PSE/Cheese lovers.mp4" controls muted poster="/PSE/Cheese lovers.png" loading="lazy" aria-label="Cheese Lovers Video"></video></div>
-            <div class="video-item"><video src="/PSE/Gym Water bottle with rope handle.mp4" controls muted poster="/PSE/Gym Water bottle with rope handle.png" loading="lazy" aria-label="Gym Water Bottle with Rope Handle Video"></video></div>
-            <div class="video-item"><video src="/PSE/Memes.mp4" controls muted poster="/PSE/Memes.png" loading="lazy" aria-label="Memes Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Rosegold wine tumbler.mp4" controls muted poster="/PSE/Rosegold wine tumbler.png" loading="lazy" aria-label="Rosegold Wine Tumbler Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/This rose will last forever.mp4" controls muted poster="/PSE/This rose will last forever.png" loading="lazy" aria-label="This Rose Will Last Forever Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Stitch wrap around.mp4" controls muted poster="/PSE/Stitch wrap around.png" loading="lazy" aria-label="Stitch Wrap Around Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Moon Fairie.mp4" controls muted poster="/PSE/Moon Fairie.png" loading="lazy" aria-label="Moon Fairie Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Diaries.mp4" controls muted poster="/PSE/Diaries.png" loading="lazy" aria-label="Diaries Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Monster Jam.mp4" controls muted poster="/PSE/Monster Jam.png" loading="lazy" aria-label="Monster Jam Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Double Dragon.mp4" controls muted poster="/PSE/Double Dragon.png" loading="lazy" aria-label="Double Dragon Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Spooky.mp4" controls muted poster="/PSE/Spooky.png" loading="lazy" aria-label="Spooky Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Box cutting and engraving.mp4" controls muted poster="/PSE/Box cutting and engraving.png" loading="lazy" aria-label="Box Cutting and Engraving Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Merry Christmas.mp4" controls muted poster="/PSE/Merry Christmas.png" loading="lazy" aria-label="Merry Christmas Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Fairytale.mp4" controls muted poster="/PSE/Fairytale.png" loading="lazy" aria-label="Fairytale Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Rosegold Paisley wrap around.mp4" controls muted poster="/PSE/Rosegold Paisley wrap around.png" loading="lazy" aria-label="Rosegold Paisley Wrap Around Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Custom 20oz Tumbler Birthday Gift.mp4" controls muted poster="/PSE/Custom 20oz Tumbler Birthday Gift.png" loading="lazy" aria-label="Custom 20oz Tumbler Birthday Gift Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Pretty Stitched Engraving video.mp4" controls muted poster="/PSE/Pretty Stitched Engraving video.png" loading="lazy" aria-label="Pretty Stitched Engraving Promotional Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Corporate gifts 3.8l water bottle.mp4" controls muted poster="/PSE/Corporate gifts 3.8l water bottle.png" loading="lazy" aria-label="Corporate Gifts 3.8L Water Bottle Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/KTM birthday present.mp4" controls muted poster="/PSE/KTM birthday present.png" loading="lazy" aria-label="KTM Birthday Present Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Fitness Freaks.mp4" controls muted poster="/PSE/Fitness Freaks.png" loading="lazy" aria-label="Fitness Freaks Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Orange Dragon.mp4" controls muted poster="/PSE/Orange Dragon.png" loading="lazy" aria-label="Orange Dragon Video"></video></div>
-            <div class="video-item hidden"><video src="/PSE/Wine tumbler.mp4" controls muted poster="/PSE/Wine tumbler.png" loading="lazy" aria-label="Wine Tumbler Video"></video></div>
+            <div class="video-item"><video src="/PSE/Indigo Pet drive 2025.mp4" controls muted poster="/PSE/Indigo Pet drive 2025.png" loading="lazy"></video></div>
+            <div class="video-item"><video src="/PSE/Personalized pool cue.mp4" controls muted poster="/PSE/Personalized pool cue.png" loading="lazy"></video></div>
+            <div class="video-item"><video src="/PSE/Christmas present.mp4" controls muted poster="/PSE/Christmas present.png" loading="lazy"></video></div>
+            <div class="video-item"><video src="/PSE/Cheese lovers.mp4" controls muted poster="/PSE/Cheese lovers.png" loading="lazy"></video></div>
+            <div class="video-item"><video src="/PSE/Gym Water bottle with rope handle.mp4" controls muted poster="/PSE/Gym Water bottle with rope handle.png" loading="lazy"></video></div>
+            <div class="video-item"><video src="/PSE/Memes.mp4" controls muted poster="/PSE/Memes.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Rosegold wine tumbler.mp4" controls muted poster="/PSE/Rosegold wine tumbler.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/This rose will last forever.mp4" controls muted poster="/PSE/This rose will last forever.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Stitch wrap around.mp4" controls muted poster="/PSE/Stitch wrap around.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Moon Fairie.mp4" controls muted poster="/PSE/Moon Fairie.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Diaries.mp4" controls muted poster="/PSE/Diaries.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Monster Jam.mp4" controls muted poster="/PSE/Monster Jam.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Double Dragon.mp4" controls muted poster="/PSE/Double Dragon.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Spooky.mp4" controls muted poster="/PSE/Spooky.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Box cutting and engraving.mp4" controls muted poster="/PSE/Box cutting and engraving.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Merry Christmas.mp4" controls muted poster="/PSE/Merry Christmas.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Fairytale.mp4" controls muted poster="/PSE/Fairytale.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Rosegold Paisley wrap around.mp4" controls muted poster="/PSE/Rosegold Paisley wrap around.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Custom 20oz Tumbler Birthday Gift.mp4" controls muted poster="/PSE/Custom 20oz Tumbler Birthday Gift.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Pretty Stitched Engraving video.mp4" controls muted poster="/PSE/Pretty Stitched Engraving video.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Corporate gifts 3.8l water bottle.mp4" controls muted poster="/PSE/Corporate gifts 3.8l water bottle.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/KTM birthday present.mp4" controls muted poster="/PSE/KTM birthday present.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Fitness Freaks.mp4" controls muted poster="/PSE/Fitness Freaks.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Orange Dragon.mp4" controls muted poster="/PSE/Orange Dragon.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Wine tumbler.mp4" controls muted poster="/PSE/Wine tumbler.png" loading="lazy"></video></div>
         </div>
         <div class="see-more-container">
             <button class="see-more-btn" aria-label="See more videos">See More</button>
         </div>
     </section>
     <section id="contact" class="contact">
-        <h2>Contact Pretty Stitched Engraving</h2>
-        <p>Reach out for custom laser engraving orders or inquiries in Centurion, South Africa!</p>
+        <h2>Get in Touch</h2>
+        <p>Reach out for custom orders or inquiries!</p>
         <div class="contact-links">
-            <a href="mailto:prettystitchedengraving@gmail.com">Email Us</a>
-            <a href="tel:+27832227144">Call Us: 083 222 7144</a>
+            <a href="mailto:prettystitchedengraving@gmail.com">Email</a>
+            <a href="tel:+27832227144">Call Us</a>
             <a href="https://www.tiktok.com/@diedrake" target="_blank" rel="noopener noreferrer">TikTok</a>
             <a href="https://www.facebook.com/share/1AGJEC1RfQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
         </div>
