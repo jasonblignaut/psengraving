@@ -16,8 +16,25 @@
     <meta name="twitter:title" content="Pretty Stitched Engraving - Laser Engraving & Custom Engraving">
     <meta name="twitter:description" content="Custom laser cutting and engraving services in Centurion, South Africa.">
     <meta name="twitter:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
-    <link rel="icon" type="image/x-icon" href="/PSE/pseLogoO.ico">
-    <link rel="apple-touch-icon" href="/PSE/pseLogoO.jpg">
+    <!-- Updated favicon and icon links -->
+    <link rel="icon" type="image/x-icon" href="/PSE/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/PSE/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/PSE/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/PSE/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/PSE/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/PSE/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/PSE/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/PSE/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/PSE/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/PSE/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/PSE/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/PSE/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/PSE/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/PSE/favicon-16x16.png">
+    <link rel="manifest" href="/PSE/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/PSE/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <title>Pretty Stitched Engraving - Laser Engraving & Custom Engraving</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -355,7 +372,7 @@
             transform: scale(1.2);
         }
 
-        .whatsapp-button, .audio-toggle {
+        .whatsapp-button, .audio-toggle, .back-to-top {
             position: fixed;
             z-index: 1000;
             transition: transform 0.3s;
@@ -398,7 +415,6 @@
         }
 
         .back-to-top {
-            position: fixed;
             bottom: 2rem;
             right: 2rem;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
@@ -681,13 +697,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 400px; /* Fixed height for consistency */
+            height: 400px; /* Fixed height for desktop */
         }
 
         .carousel-item img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Ensures the image fits the container while maintaining aspect ratio */
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
             border-radius: 15px;
             border: 2px solid var(--primary-color);
             box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
@@ -807,6 +823,17 @@
         }
 
         @media (max-width: 768px) {
+            .carousel-item {
+                min-width: 100%; /* Full width on mobile */
+                height: 300px; /* Adjusted height for mobile */
+            }
+
+            .carousel-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Maintains aspect ratio and fills container */
+            }
+
             .video-gallery {
                 display: flex;
                 flex-direction: column;
@@ -943,7 +970,7 @@
             }
 
             header {
-                justify-content: flex-end; /* Move hamburger to the right */
+                justify-content: flex-end;
             }
 
             .hamburger {
@@ -970,40 +997,6 @@
                 margin: 1.5rem 0;
                 font-size: 1.3rem;
             }
-        }
-
-        @media (max-width: 480px) {
-            .audio-overlay button {
-                font-size: 0.9rem;
-                padding: 0.8rem 1.5rem;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .video-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero {
-                padding: 1.5rem;
-            }
-
-            .hero img {
-                width: 180px;
-                height: 180px;
-            }
-
-            .whatsapp-button, .audio-toggle {
-                width: 50px;
-                height: 50px;
-            }
 
             .whatsapp-button {
                 bottom: 5rem;
@@ -1022,14 +1015,18 @@
             }
 
             .back-to-top {
+                bottom: 1.5rem;
                 right: 1.5rem;
-                width: 50px;
-                height: 50px;
                 font-size: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
+            .audio-overlay button {
+                font-size: 0.9rem;
+                padding: 0.8rem 1.5rem;
+            }
+
             section {
                 padding: 3rem 1rem;
             }
@@ -1040,6 +1037,12 @@
 
             .hero p {
                 font-size: clamp(1rem, 2.5vw, 1.2rem);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .video-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
         }
     </style>
@@ -1072,7 +1075,7 @@
     <section class="hero" id="main-content">
         <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo - Laser Engraving" id="hero-image" loading="eager">
         <h1>Pretty Stitched Engraving</h1>
-        `   <p>Custom Laser Cutting & Engraving | Centurion, South Africa</p>
+        <p>Custom Laser Cutting & Engraving | Centurion, South Africa</p>
         <a href="#products" class="cta-button">Explore Our Creations</a>
     </section>
     <section id="about" class="about">
