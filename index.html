@@ -1157,7 +1157,7 @@
     </section>
     <footer>
         <p>© 2025 Pretty Stitched Engraving | 5 Hilton Street, Centurion, South Africa, 0157</p>
-        <p id="hit-counter">Page Views: 0</p>
+        <p id="hit-counter">Unique Visitors: 0</p>
         <div class="footer-links">
             <a href="mailto:prettystitchedengraving@gmail.com">Contact Us</a>
             <a href="https://www.tiktok.com/@diedrake" target="_blank" rel="noopener noreferrer">TikTok</a>
@@ -1372,10 +1372,62 @@
             heroImage.src = '/PSE/pseLogoO.jpg';
         });
 
+        // Cloudflare Analytics API for lifetime unique visitors
+        async function fetchLifetimeUniqueVisitors() {
+            const apiToken = 'dOJV_0bgdnypo9u36OpeIUz02NA4POzRl4K2fmj5';
+            const zoneId = '2eddb967f27bdca0d8d2594d2c385780';
+            const startDate = '2025-04-07'; // Adjust to when your site was added to Cloudflare
+            const endDate = new Date().toISOString().split('T')[0]; // Today
+
+            const query = `
+                query {
+                    viewer {
+                        zones(filter: { zoneTag: "${zoneId}" }) {
+                            httpRequests1dGroups(
+                                limit: 10000
+                                orderBy: [date_ASC]
+                                filter: { date_geq: "${startDate}", date_leq: "${endDate}" }
+                            ) {
+                                uniq {
+                                    uniques
+                                }
+                            }
+                        }
+                    }
+                }
+            `;
+
+            try {
+                const response = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${apiToken}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ query })
+                });
+                const data = await response.json();
+                if (data.errors) {
+                    throw new Error(data.errors[0].message);
+                }
+                // Sum up unique visitors across all days
+                const uniqueVisitors = data.data.viewer.zones[0].httpRequests1dGroups.reduce((total, group) => {
+                    return total + group.uniq.uniques;
+                }, 0);
+                document.getElementById('hit-counter').textContent = `Unique Visitors: ${uniqueVisitors}`;
+            } catch (error) {
+                console.error('Error fetching unique visitors:', error);
+                document.getElementById('hit-counter').textContent = 'Unique Visitors: N/A';
+            }
+        }
+
+        // Call on page load
+        window.addEventListener('load', fetchLifetimeUniqueVisitors);
+
         // Google Analytics Event Tracking for "Call Us" and "Contact" links
         document.querySelectorAll('.contact-links a').forEach(link => {
             link.addEventListener('click', (e) => {
-                const label = e.target.textContent.trim(); // e.g., "Call Us", "Email", etc.
+                const label = e.target.textContent.trim();
                 gtag('event', 'click', {
                     'event_category': 'Menu Interaction',
                     'event_label': label,
@@ -1392,12 +1444,6 @@
                 'value': 1
             });
         });
-
-        // Optional: Simple visible hit counter using localStorage
-        let pageViews = localStorage.getItem('pageViews') || 0;
-        pageViews++;
-        localStorage.setItem('pageViews', pageViews);
-        document.getElementById('hit-counter').textContent = `Page Views: ${pageViews}`;
     </script>
 </body>
 </html>
