@@ -1157,7 +1157,20 @@
     </section>
     <footer>
         <p>© 2025 Pretty Stitched Engraving | 5 Hilton Street, Centurion, South Africa, 0157</p>
-        <p id="hit-counter">Page Views: 0</p>
+        <p id="unique-counter">Unique Visitors: ...</p>
+
+<script>
+  fetch("https://livecounter.1fardigital.workers.dev")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('unique-counter').textContent = 
+        `Unique Visitors: ${data.uniques}`;
+    })
+    .catch(() => {
+      document.getElementById('unique-counter').textContent = 
+        "Unique Visitors: error loading";
+    });
+</script>
         <div class="footer-links">
             <a href="mailto:prettystitchedengraving@gmail.com">Contact Us</a>
             <a href="https://www.tiktok.com/@diedrake" target="_blank" rel="noopener noreferrer">TikTok</a>
@@ -1394,10 +1407,21 @@
         });
 
         // Optional: Simple visible hit counter using localStorage
-        let pageViews = localStorage.getItem('pageViews') || 0;
-        pageViews++;
-        localStorage.setItem('pageViews', pageViews);
-        document.getElementById('hit-counter').textContent = `Page Views: ${pageViews}`;
+<p id="unique-counter">Unique Visitors: ...</p>
+
+<script>
+  fetch("https://livecounter.1fardigital.workers.dev")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('unique-counter').textContent = 
+        `Unique Visitors: ${data.uniques}`;
+    })
+    .catch(() => {
+      document.getElementById('unique-counter').textContent = 
+        "Unique Visitors: error loading";
+    });
+</script>
+
     </script>
 </body>
 </html>
