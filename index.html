@@ -605,6 +605,7 @@
 
         #about {
             min-height: auto;
+            text-align: center; /* Center-align all content in the About Us section */
         }
 
         #products, #gallery, #contact {
@@ -670,18 +671,22 @@
             display: flex;
             flex-wrap: wrap;
             gap: 3rem;
-            align-items: center;
+            justify-content: center; /* Center-align the content horizontally */
+            align-items: center; /* Center-align the content vertically */
         }
 
         .about-text {
             flex: 1;
             min-width: 300px;
+            max-width: 600px; /* Limit the width for better readability */
+            text-align: center; /* Center-align the text */
         }
 
         .about-text p {
             line-height: 1.8;
             color: var(--text-muted);
             font-size: 1.1rem;
+            margin: 0 auto; /* Center-align paragraphs */
         }
 
         .carousel-container {
@@ -1090,8 +1095,8 @@
         <div class="about-content">
             <div class="about-text">
                 <h2>About Us</h2>
-                <p style="text-align: center;">We specialize in creating personalized, high quality engraved products that make perfect gifts for everyone.</p>
-                <p style="text-align: center;">Contact us at 0832227144 or prettystitchedengraving@gmail.com to bring your ideas to life!</p>
+                <p>We specialize in creating personalized, high quality engraved products that make perfect gifts for everyone.</p>
+                <p>Contact us at 0832227144 or prettystitchedengraving@gmail.com to bring your ideas to life!</p>
             </div>
         </div>
     </section>
@@ -1372,21 +1377,20 @@
             heroImage.src = '/PSE/pseLogoO.jpg';
         });
 
-        // Cloudflare Analytics API for lifetime unique visitors
+        // Cloudflare Analytics API for unique visitors (today only, since site was added 7 hours ago)
         async function fetchLifetimeUniqueVisitors() {
             const apiToken = 'dOJV_0bgdnypo9u36OpeIUz02NA4POzRl4K2fmj5';
             const zoneId = '2eddb967f27bdca0d8d2594d2c385780';
-            const startDate = '2025-04-07'; // Adjust to when your site was added to Cloudflare
-            const endDate = new Date().toISOString().split('T')[0]; // Today
+            const currentDate = new Date().toISOString().split('T')[0]; // e.g., "2025-04-07"
 
             const query = `
                 query {
                     viewer {
                         zones(filter: { zoneTag: "${zoneId}" }) {
                             httpRequests1dGroups(
-                                limit: 10000
+                                limit: 1
                                 orderBy: [date_ASC]
-                                filter: { date_geq: "${startDate}", date_leq: "${endDate}" }
+                                filter: { date_geq: "${currentDate}", date_leq: "${currentDate}" }
                             ) {
                                 uniq {
                                     uniques
@@ -1410,14 +1414,12 @@
                 if (data.errors) {
                     throw new Error(data.errors[0].message);
                 }
-                // Sum up unique visitors across all days
-                const uniqueVisitors = data.data.viewer.zones[0].httpRequests1dGroups.reduce((total, group) => {
-                    return total + group.uniq.uniques;
-                }, 0);
+                const uniqueVisitors = data.data.viewer.zones[0].httpRequests1dGroups[0]?.uniq?.uniques || 0;
                 document.getElementById('hit-counter').textContent = `Unique Visitors: ${uniqueVisitors}`;
+                console.log('Cloudflare API Response:', data);
             } catch (error) {
                 console.error('Error fetching unique visitors:', error);
-                document.getElementById('hit-counter').textContent = 'Unique Visitors: N/A';
+                document.getElementById('hit-counter').textContent = 'Unique Visitors: Counting...';
             }
         }
 
