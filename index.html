@@ -361,8 +361,23 @@
             transition: transform 0.3s;
         }
 
-        .audio-toggle {
+        .whatsapp-button {
             bottom: 6rem;
+            left: 2rem;
+        }
+
+        .whatsapp-button img {
+            width: 70px;
+            height: 70px;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-button:hover img, .whatsapp-button:focus img {
+            transform: scale(1.15);
+        }
+
+        .audio-toggle {
+            bottom: 2rem;
             left: 2rem;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -380,21 +395,6 @@
         .audio-toggle:hover, .audio-toggle:focus {
             transform: scale(1.15);
             box-shadow: 0 0 calc(var(--glow-intensity) * 1.5) var(--primary-color);
-        }
-
-        .whatsapp-button {
-            bottom: 2rem;
-            left: 2rem;
-        }
-
-        .whatsapp-button img {
-            width: 60px;
-            height: 60px;
-            transition: transform 0.3s;
-        }
-
-        .whatsapp-button:hover img, .whatsapp-button:focus img {
-            transform: scale(1.15);
         }
 
         .back-to-top {
@@ -678,11 +678,16 @@
             min-width: 33.33%;
             padding: 1rem;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px; /* Fixed height for consistency */
         }
 
         .carousel-item img {
-            width: 100%;
-            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensures the image fits the container while maintaining aspect ratio */
             border-radius: 15px;
             border: 2px solid var(--primary-color);
             box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
@@ -938,7 +943,7 @@
             }
 
             header {
-                justify-content: space-between;
+                justify-content: flex-end; /* Move hamburger to the right */
             }
 
             .hamburger {
@@ -1000,20 +1005,20 @@
                 height: 50px;
             }
 
-            .audio-toggle {
-                bottom: 5rem;
-                left: 1.5rem;
-                font-size: 1.5rem;
-            }
-
             .whatsapp-button {
-                bottom: 1.5rem;
+                bottom: 5rem;
                 left: 1.5rem;
             }
 
             .whatsapp-button img {
                 width: 50px;
                 height: 50px;
+            }
+
+            .audio-toggle {
+                bottom: 1.5rem;
+                left: 1.5rem;
+                font-size: 1.5rem;
             }
 
             .back-to-top {
@@ -1060,14 +1065,14 @@
         </nav>
     </header>
     <a href="#" class="back-to-top" title="Back to Top" aria-label="Back to Top">↑</a>
-    <button class="audio-toggle" title="Toggle Music" aria-label="Toggle Background Music">♫</button>
     <a href="https://wa.me/27832227144" class="whatsapp-button" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
         <img src="/PSE/whatsapp.jpg" alt="WhatsApp Icon" loading="lazy">
     </a>
+    <button class="audio-toggle" title="Toggle Music" aria-label="Toggle Background Music">♫</button>
     <section class="hero" id="main-content">
         <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo - Laser Engraving" id="hero-image" loading="eager">
         <h1>Pretty Stitched Engraving</h1>
-        <p>Custom Laser Cutting & Engraving | Centurion, South Africa</p>
+        `   <p>Custom Laser Cutting & Engraving | Centurion, South Africa</p>
         <a href="#products" class="cta-button">Explore Our Creations</a>
     </section>
     <section id="about" class="about">
