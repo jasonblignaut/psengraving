@@ -1388,18 +1388,23 @@
             });
 
             console.log('Worker Response Status:', response.status, response.statusText); // Log the HTTP status
+            console.log('Worker Response Headers:', [...response.headers]); // Log the response headers
 
-            const data = await response.json();
-            console.log('Worker API Response:', data); // Log the full response
-
-            if (data.error) {
-              console.error('Worker Error:', data.error, data.details);
-              document.getElementById('hit-counter').textContent = 'Unique Visitors: Error';
-              return;
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            // Extract the unique visitor count
-            const uniques = data.uniques;
+            // Get the raw text response
+            const text = await response.text();
+            console.log('Worker Raw Response:', text); // Log the raw response
+
+            // Extract the number from the {"uniques":X} part using a regular expression
+            const match = text.match(/"uniques":(\d+)/);
+            if (!match || !match[1]) {
+              throw new Error('Could not extract unique visitors count from response');
+            }
+
+            const uniques = parseInt(match[1], 10);
             console.log('Extracted Unique Visitors:', uniques); // Log the extracted value
 
             // Update the hit counter
