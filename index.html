@@ -1391,20 +1391,13 @@
               throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            // Get the raw text response
-            const text = await response.text();
+            const data = await response.json();
+            const uniques = data.uniques;
 
-            // Find the position of "uniques" and extract the number
-            const uniquesStart = text.indexOf('"uniques":') + 10; // Start after '"uniques":'
-            const uniquesEnd = text.indexOf('}', uniquesStart); // End at the closing brace
-            const uniquesStr = text.substring(uniquesStart, uniquesEnd); // Extract the number as a string
-            const uniques = parseInt(uniquesStr, 10); // Convert to integer
-
-            if (isNaN(uniques)) {
-              throw new Error('Could not parse unique visitors count');
+            if (typeof uniques !== 'number') {
+              throw new Error('Invalid unique visitors count');
             }
 
-            // Update the hit counter
             document.getElementById('hit-counter').textContent = `Unique Visitors: ${uniques}`;
           } catch (error) {
             console.error('Fetch Error:', error);
