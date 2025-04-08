@@ -186,6 +186,7 @@
             overflow: hidden;
             background: var(--dark-bg);
             perspective: 1000px;
+            z-index: 1;
         }
 
         .hero-video {
@@ -201,11 +202,23 @@
             transition: transform 0.5s ease;
         }
 
+        .hero-video-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/PSE/fallback.jpg') no-repeat center/cover;
+            z-index: -2;
+            display: none;
+        }
+
         .hero-content {
-            z-index: 1;
+            z-index: 2;
             padding: 4rem;
             animation: fadeInUp 2s ease forwards;
             transform-style: preserve-3d;
+            position: relative;
         }
 
         @keyframes fadeInUp {
@@ -245,6 +258,7 @@
             position: relative;
             overflow: hidden;
             transform-style: preserve-3d;
+            z-index: 2;
         }
 
         .cta-button::before {
@@ -474,6 +488,8 @@
             box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
             transition: all 0.4s ease;
             text-align: center;
+            border: none;
+            cursor: pointer;
         }
 
         .show-more:hover, .show-more:focus {
@@ -489,11 +505,15 @@
             border-radius: 30px;
             box-shadow: 0 0 var(--glow-intensity) rgba(0, 212, 255, 0.2);
             perspective: 1000px;
+            position: relative;
+            z-index: 1;
         }
 
         .contact-content-inner {
             transform-style: preserve-3d;
             transition: transform 0.5s ease;
+            position: relative;
+            z-index: 2;
         }
 
         .contact-content:hover .contact-content-inner {
@@ -514,6 +534,8 @@
             justify-content: center;
             gap: 3rem;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 3;
         }
 
         .contact-links a {
@@ -528,6 +550,8 @@
             position: relative;
             overflow: hidden;
             transform-style: preserve-3d;
+            z-index: 4;
+            cursor: pointer;
         }
 
         .contact-links a::before {
@@ -539,6 +563,7 @@
             height: 100%;
             background: rgba(255, 255, 255, 0.4);
             transition: left 0.5s ease;
+            z-index: -1;
         }
 
         .contact-links a:hover::before, .contact-links a:focus::before {
@@ -556,25 +581,23 @@
         .whatsapp-button {
             position: fixed;
             bottom: 2.5rem;
-            right: 8rem;
+            left: 2.5rem;
             width: 70px;
             height: 70px;
-            background: #25D366;
-            color: #fff;
+            background: url('/PSE/whatsapp.jpg') no-repeat center/cover;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2.5rem;
             text-decoration: none;
-            box-shadow: 0 0 var(--glow-intensity) #25D366;
+            box-shadow: 0 0 var(--glow-intensity) rgba(37, 211, 102, 0.7);
             transition: all 0.4s ease;
             z-index: 1000;
         }
 
         .whatsapp-button:hover, .whatsapp-button:focus {
             transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 0 calc(var(--glow-intensity) * 2) #25D366;
+            box-shadow: 0 0 calc(var(--glow-intensity) * 2) rgba(37, 211, 102, 0.7);
         }
 
         /* Back to Top Button */
@@ -726,7 +749,11 @@
             }
 
             .whatsapp-button {
-                right: 6rem;
+                left: 1.5rem;
+            }
+
+            .back-to-top {
+                right: 1.5rem;
             }
         }
     </style>
@@ -734,7 +761,7 @@
 <body>
     <div id="particles-js"></div>
     <audio id="background-music" loop>
-        <source src="/PSE/background_music.mp3" type="audio/mpeg">
+        <source src="/PSE/lofi.mp3" type="audio/mpeg">
     </audio>
 
     <header>
@@ -751,7 +778,8 @@
     </header>
 
     <section class="hero">
-        <video class="hero-video" src="https://engravinglaser.co.za/pse/loopinfinity.mp4" autoplay loop muted playsinline></video>
+        <video class="hero-video" src="https://engravinglaser.co.za/pse/loopinfinity.mp4" autoplay loop muted playsinline preload="auto"></video>
+        <div class="hero-video-fallback"></div>
         <div class="hero-content">
             <h1>Pretty Stitched Engraving</h1>
             <p>Unleash your imagination with cinematic laser-engraved masterpieces.</p>
@@ -838,7 +866,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/27832227144" class="whatsapp-button" title="Chat on WhatsApp">📱</a>
+    <a href="https://wa.me/27832227144" class="whatsapp-button" title="Chat on WhatsApp"></a>
     <a href="#" class="back-to-top" title="Back to Top">↑</a>
 
     <div class="fullscreen-modal">
@@ -963,14 +991,24 @@
             });
         });
 
-        // Video Load Check
+        // Ensure Video Loads 100%
         const heroVideo = document.querySelector('.hero-video');
-        heroVideo.addEventListener('error', () => {
-            console.error('Error loading video: https://engravinglaser.co.za/pse/loopinfinity.mp4');
+        const fallback = document.querySelector('.hero-video-fallback');
+        heroVideo.addEventListener('error', (e) => {
+            console.error('Video failed to load:', e);
+            heroVideo.style.display = 'none';
+            fallback.style.display = 'block';
         });
         heroVideo.addEventListener('loadeddata', () => {
             console.log('Video loaded successfully');
+            heroVideo.style.display = 'block';
+            fallback.style.display = 'none';
         });
+        // Force reload if not playing
+        if (!heroVideo.playing) {
+            heroVideo.load();
+            heroVideo.play().catch(e => console.error('Autoplay failed:', e));
+        }
     </script>
 </body>
 </html>
