@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pretty Stitched Engraving offers premier custom laser engraving and cutting services in South Africa. Personalized gifts, tumblers, and more—crafted with precision and artistry.">
-    <meta name="keywords" content="laser engraving, custom laser engraving, laser cutting, personalized gifts, custom tumblers, Pretty Stitched Engraving, Centurion, Pretoria, South Africa, laser art">
+    <meta name="description" content="Pretty Stitched Engraving - Custom laser cutting and engraving services in South Africa. Personalized gifts, tumblers, and more—crafted with precision and artistry.">
+    <meta name="keywords" content="Laser Engraving, Custom Engraving, Laser Cutting, Personalized Gifts, Custom Tumblers, Pretty Stitched Engraving, Centurion, South Africa, laser art">
     <meta name="author" content="Pretty Stitched Engraving">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Pretty Stitched Engraving - Premier Laser Engraving & Cutting">
-    <meta property="og:description" content="Discover top-tier custom laser engraving and cutting services in Centurion, South Africa. Personalized designs for gifts and more.">
+    <meta property="og:title" content="Pretty Stitched Engraving - Custom Laser Engraving & Cutting">
+    <meta property="og:description" content="Custom laser cutting and engraving services in Centurion, South Africa. Personalized designs for gifts and more.">
     <meta property="og:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
     <meta property="og:url" content="https://engravinglaser.co.za">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pretty Stitched Engraving - Premier Laser Engraving & Cutting">
-    <meta name="twitter:description" content="Custom laser engraving and cutting services in Centurion, South Africa. Personalized designs for gifts and more.">
+    <meta name="twitter:title" content="Pretty Stitched Engraving - Custom Laser Engraving & Cutting">
+    <meta name="twitter:description" content="Custom laser cutting and engraving services in Centurion, South Africa. Personalized designs for gifts and more.">
     <meta name="twitter:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
     <link rel="icon" type="image/x-icon" href="/PSE/favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="/PSE/apple-icon-57x57.png">
@@ -33,8 +33,8 @@
     <link rel="manifest" href="/PSE/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/PSE/ms-icon-144x144.png">
-    <meta name="theme-color" content="#0a0a1a">
-    <title>Pretty Stitched Engraving - Premier Laser Engraving & Cutting in South Africa</title>
+    <meta name="theme-color" content="#0d0d1b">
+    <title>Pretty Stitched Engraving - Custom Laser Engraving & Cutting</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWZS8F10JE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -44,13 +44,15 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Pretty Stitched Engraving",
-      "description": "Premier custom laser engraving and cutting services in South Africa. Personalised designs for gifts, tumblers, and more.",
+      "description": "Custom laser cutting and engraving services in South Africa. Personalised Designs - You Say & We Do.",
       "url": "https://engravinglaser.co.za",
       "telephone": "+27832227144",
       "address": {
@@ -67,7 +69,7 @@
         "https://www.facebook.com/share/1AGJEC1RfQ/?mibextid=wwXIfr"
       ],
       "image": "https://engravinglaser.co.za/PSE/pseLogoO.jpg",
-      "keywords": "laser engraving, custom laser engraving, laser cutting, personalised gifts, South Africa",
+      "keywords": "laser engraving, custom engraving, laser cutting, personalised gifts, South Africa",
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": "-25.8603",
@@ -77,96 +79,320 @@
     </script>
     <style>
         :root {
-            --primary-color: #00d4ff;
-            --secondary-color: #ff007a;
-            --dark-bg: #0a0a1a;
-            --light-text: #f0f0f5;
-            --muted-text: #b0b0c0;
-            --glow-intensity: 15px;
-            --shadow-dark: rgba(0, 0, 0, 0.5);
+            --primary-color: #00aaff;
+            --secondary-color: #ff00ff;
+            --bg-dark: #0d0d1b;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-light: #e4e4e4;
+            --text-muted: #d0d0d0;
+            --glow-intensity: 20px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background: var(--dark-bg);
-            color: var(--light-text);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
-            scroll-behavior: smooth;
             position: relative;
+            font-size: 16px; /* Base font size for better scaling */
         }
 
-        /* Laser Particles Background */
+        /* Particles Background */
         #particles-js {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
+            z-index: -1;
             background: transparent;
         }
 
-        /* Header */
-        header {
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .engraving-spark {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            background: linear-gradient(45deg, var(--primary-color), #ffffff, var(--secondary-color));
+            pointer-events: none;
+            z-index: 10001;
+            opacity: 0.8;
+            box-shadow: 0 0 10px var(--primary-color), 0 0 15px var(--secondary-color);
+            animation: engravingFlicker 0.4s ease-out forwards;
+        }
+
+        .engraving-flare {
+            position: fixed;
+            width: 3px;
+            height: 8px;
+            background: linear-gradient(var(--primary-color), transparent);
+            pointer-events: none;
+            z-index: 10001;
+            opacity: 0.6;
+            box-shadow: 0 0 5px var(--primary-color);
+            animation: flareBurst 0.5s ease-out forwards;
+        }
+
+        @keyframes engravingFlicker {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            50% { transform: scale(1.3) rotate(45deg); opacity: 0.5; }
+            100% { transform: scale(0) rotate(90deg); opacity: 0; }
+        }
+
+        @keyframes flareBurst {
+            0% { transform: translateY(0) rotate(30deg); opacity: 0.6; }
+            100% { transform: translateY(10px) rotate(30deg); opacity: 0; }
+        }
+
+        .laser-beam {
+            position: fixed;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            box-shadow: 0 0 10px var(--primary-color);
+            animation: laserBeamFade 3s ease-in-out forwards;
+        }
+
+        .laser-beam.vertical {
+            width: 2px;
+            height: 100vh;
+            animation: laserBeamFadeVertical 3s ease-in-out forwards;
+        }
+
+        .laser-beam.horizontal {
+            width: 100vw;
+            height: 2px;
+            animation: laserBeamFadeHorizontal 3s ease-in-out forwards;
+        }
+
+        @keyframes laserBeamFade {
+            0% { opacity: 0; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes laserBeamFadeHorizontal {
+            0% { opacity: 0; transform: translateX(-100%); }
+            20% { opacity: 0.6; transform: translateX(-50%); }
+            80% { opacity: 0.6; transform: translateX(50%); }
+            100% { opacity: 0; transform: translateX(100%); }
+        }
+
+        @keyframes laserBeamFadeVertical {
+            0% { opacity: 0; transform: translateY(-100%); }
+            20% { opacity: 0.6; transform: translateY(-50%); }
+            80% { opacity: 0.6; transform: translateY(50%); }
+            100% { opacity: 0; transform: translateY(100%); }
+        }
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            overflow: hidden;
+        }
+
+        .background-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7) contrast(1.2);
+        }
+
+        .background-fallback {
+            width: 100%;
+            height: 100%;
+            background: url('/PSE/background.jpg') no-repeat center/cover;
+            display: none;
+        }
+
+        .background::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+            z-index: -2;
+        }
+
+        .audio-overlay {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(10, 10, 26, 0.7);
-            backdrop-filter: blur(12px);
-            padding: 1.5rem 4rem;
+            height: 100%;
+            background: rgba(13, 13, 27, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease;
+        }
+
+        .audio-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .audio-overlay button {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.8rem);
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+        }
+
+        .audio-overlay button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: hologramSwipe 2.5s infinite;
+        }
+
+        @keyframes hologramSwipe {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .audio-overlay button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 calc(var(--glow-intensity) * 1.5) var(--primary-color);
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+
+        .preloader::before {
+            content: '';
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--primary-color);
+            border-top: 5px solid var(--secondary-color);
+            border-radius: 50%;
+            animation: cyberSpin 1.2s linear infinite;
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        @keyframes cyberSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(26, 26, 46, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            transition: all 0.5s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: opacity 0.3s ease, transform 0.3s;
         }
 
-        header.scrolled {
-            background: rgba(10, 10, 26, 0.9);
-            box-shadow: 0 2px 20px var(--shadow-dark);
+        header.hidden {
+            opacity: 0;
+            transform: translateY(-100%);
         }
 
-        .logo img {
-            height: 70px;
-            transition: transform 0.3s ease, filter 0.3s ease;
+        nav {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            padding: 1rem;
+            box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
+            z-index: 999;
         }
 
-        .logo img:hover {
-            transform: scale(1.15);
-            filter: drop-shadow(0 0 10px var(--primary-color));
+        nav.active {
+            display: flex;
         }
 
         nav a {
-            color: var(--light-text);
+            color: var(--text-light);
             text-decoration: none;
-            margin-left: 3rem;
-            font-weight: 600;
-            font-size: 1.3rem;
+            margin: 0.8rem 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             text-transform: uppercase;
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        nav a::before {
+        nav a::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 3px;
-            bottom: -12px;
-            left: 50%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+            transition: width 0.3s;
         }
 
-        nav a:hover::before, nav a:focus::before {
+        nav a:hover::after, nav a:focus::after {
             width: 100%;
         }
 
@@ -175,449 +401,81 @@
             text-shadow: 0 0 10px var(--primary-color);
         }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
-            background: var(--dark-bg);
-            perspective: 1000px;
-            z-index: 1;
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            filter: brightness(0.7) contrast(1.2);
-            transform: scale(1.1);
-            transition: transform 0.5s ease;
-        }
-
-        .hero-video-fallback {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('/PSE/fallback.jpg') no-repeat center/cover;
-            z-index: -2;
-            display: none;
-        }
-
-        .hero-content {
-            z-index: 2;
-            padding: 4rem;
-            animation: fadeInUp 2s ease forwards;
-            transform-style: preserve-3d;
-            position: relative;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(60px) rotateX(-10deg); }
-            to { opacity: 1; transform: translateY(0) rotateX(0); }
-        }
-
-        .hero h1 {
-            font-size: clamp(3.5rem, 12vw, 7rem);
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 2rem;
-            text-shadow: 0 0 25px rgba(0, 212, 255, 0.9);
-        }
-
-        .hero p {
-            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-            color: var(--muted-text);
-            font-weight: 300;
-            max-width: 1000px;
-            margin: 0 auto 3.5rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1.5rem 4.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.5rem;
-            border-radius: 50px;
-            box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            transform-style: preserve-3d;
-            z-index: 2;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.4);
-            transition: left 0.5s ease;
-        }
-
-        .cta-button:hover::before, .cta-button:focus::before {
-            left: 100%;
-        }
-
-        .cta-button:hover, .cta-button:focus {
-            transform: translateY(-8px) scale(1.1) rotateX(5deg);
-            box-shadow: 0 0 calc(var(--glow-intensity) * 2) var(--primary-color);
-        }
-
-        /* General Section Styling */
-        section {
-            padding: 10rem 2rem;
-            max-width: 1800px;
-            margin: 0 auto;
-            position: relative;
-            scroll-margin-top: 120px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        section h2 {
-            font-size: clamp(3rem, 7vw, 5rem);
-            font-weight: 600;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 5rem;
-            position: relative;
-            text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
-        }
-
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            width: 150px;
-            height: 5px;
-            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-            transform: translateX(-50%);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
-        }
-
-        /* About Section */
-        .about-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 5rem;
-            border-radius: 30px;
-            box-shadow: 0 0 var(--glow-intensity) rgba(0, 212, 255, 0.2);
-            perspective: 1000px;
-        }
-
-        .about-text {
-            max-width: 900px;
-            text-align: center;
-            transform-style: preserve-3d;
-            transition: transform 0.5s ease;
-        }
-
-        .about-content:hover .about-text {
-            transform: rotateX(5deg) translateZ(20px);
-        }
-
-        .about-text p {
-            font-size: 1.5rem;
-            color: var(--muted-text);
-            font-weight: 300;
-            margin-bottom: 2rem;
-            line-height: 1.9;
-        }
-
-        /* Products Section */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 3.5rem;
-        }
-
-        .product-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 30px;
-            transition: all 0.5s ease;
-            background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 0 var(--glow-intensity) rgba(0, 212, 255, 0.1);
+        .hamburger {
+            display: block;
             cursor: pointer;
-            transform-style: preserve-3d;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--text-light);
+            transition: transform 0.3s;
+            padding: 0.5rem;
         }
 
-        .product-item:hover {
-            transform: scale(1.05) rotateY(5deg);
-            box-shadow: 0 0 calc(var(--glow-intensity) * 2) rgba(0, 212, 255, 0.3);
-        }
-
-        .product-item img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            border: 3px solid var(--primary-color);
-            border-radius: 30px;
-            transition: filter 0.3s ease;
-        }
-
-        .product-item:hover img {
-            filter: brightness(1.2) contrast(1.1);
-        }
-
-        /* Fullscreen Image Modal */
-        .fullscreen-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .fullscreen-modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .fullscreen-modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border: 3px solid var(--primary-color);
-            border-radius: 10px;
-            box-shadow: 0 0 20px var(--primary-color);
-        }
-
-        .fullscreen-modal .close-modal {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-size: 3rem;
-            color: var(--light-text);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .fullscreen-modal .close-modal:hover {
+        .hamburger:hover, .hamburger:focus {
             transform: scale(1.2);
         }
 
-        /* Gallery Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3.5rem;
+        .whatsapp-button, .audio-toggle, .back-to-top {
+            position: fixed;
+            z-index: 1000;
+            transition: transform 0.3s;
         }
 
-        .gallery-item {
-            position: relative;
-            border-radius: 30px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 0 var(--glow-intensity) rgba(0, 212, 255, 0.1);
-            transform-style: preserve-3d;
+        .whatsapp-button {
+            bottom: 5rem;
+            left: 1rem;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.03) rotateY(5deg);
-            box-shadow: 0 0 calc(var(--glow-intensity) * 2) rgba(0, 212, 255, 0.3);
+        .whatsapp-button img {
+            width: clamp(50px, 10vw, 70px);
+            height: clamp(50px, 10vw, 70px);
+            transition: transform 0.3s;
+            border-radius: 50%;
+            box-shadow: 0 0 var(--glow-intensity) rgba(37, 211, 102, 0.7);
         }
 
-        .gallery-item video {
-            width: 100%;
-            height: auto;
-            border: 3px solid var(--primary-color);
-            border-radius: 30px;
-            transition: filter 0.3s ease;
+        .whatsapp-button:hover img, .whatsapp-button:focus img {
+            transform: scale(1.15);
         }
 
-        .gallery-item:hover video {
-            filter: brightness(1.2) contrast(1.1);
-        }
-
-        .gallery-item.hidden {
-            display: none;
-        }
-
-        .show-more {
-            display: block;
-            margin: 4rem auto 0;
-            padding: 1rem 3rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.3rem;
-            border-radius: 50px;
+        .audio-toggle {
+            bottom: 1rem;
+            left: 1rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            width: clamp(50px, 8vw, 60px);
+            height: clamp(50px, 8vw, 60px);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
-            transition: all 0.4s ease;
-            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
             border: none;
             cursor: pointer;
         }
 
-        .show-more:hover, .show-more:focus {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 0 calc(var(--glow-intensity) * 2) var(--primary-color);
+        .audio-toggle:hover, .audio-toggle:focus {
+            transform: scale(1.15);
+            box-shadow: 0 0 calc(var(--glow-intensity) * 1.5) var(--primary-color);
         }
 
-        /* Contact Section */
-        .contact-content {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 6rem;
-            border-radius: 30px;
-            box-shadow: 0 0 var(--glow-intensity) rgba(0, 212, 255, 0.2);
-            perspective: 1000px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-content-inner {
-            transform-style: preserve-3d;
-            transition: transform 0.5s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-content:hover .contact-content-inner {
-            transform: rotateX(5deg) translateZ(20px);
-        }
-
-        .contact-content p {
-            font-size: 1.5rem;
-            color: var(--muted-text);
-            margin-bottom: 4rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 3;
-        }
-
-        .contact-links a {
-            padding: 1.3rem 3.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.4rem;
-            border-radius: 40px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            transform-style: preserve-3d;
-            z-index: 4;
-            cursor: pointer;
-        }
-
-        .contact-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.4);
-            transition: left 0.5s ease;
-            z-index: -1;
-        }
-
-        .contact-links a:hover::before, .contact-links a:focus::before {
-            left: 100%;
-        }
-
-        .contact-links a:hover, .contact-links a:focus {
-            background: var(--primary-color);
-            color: var(--dark-bg);
-            box-shadow: 0 0 calc(var(--glow-intensity) * 2) var(--primary-color);
-            transform: rotateY(10deg);
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 2.5rem;
-            left: 2.5rem;
-            width: 70px;
-            height: 70px;
-            background: url('/PSE/whatsapp.jpg') no-repeat center/cover;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            box-shadow: 0 0 var(--glow-intensity) rgba(37, 211, 102, 0.7);
-            transition: all 0.4s ease;
-            z-index: 1000;
-        }
-
-        .whatsapp-button:hover, .whatsapp-button:focus {
-            transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 0 calc(var(--glow-intensity) * 2) rgba(37, 211, 102, 0.7);
-        }
-
-        /* Back to Top Button */
         .back-to-top {
-            position: fixed;
-            bottom: 2.5rem;
-            right: 2.5rem;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--light-text);
+            bottom: 1rem;
+            right: 1rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            width: clamp(50px, 8vw, 60px);
+            height: clamp(50px, 8vw, 60px);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             text-decoration: none;
+            box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
+            transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
             opacity: 0;
-            transition: all 0.4s ease;
-            z-index: 1000;
         }
 
         .back-to-top.visible {
@@ -625,150 +483,609 @@
         }
 
         .back-to-top:hover, .back-to-top:focus {
-            transform: scale(1.15) rotate(-5deg);
-            box-shadow: 0 0 calc(var(--glow-intensity) * 2) var(--primary-color);
+            transform: scale(1.15);
+            box-shadow: 0 0 calc(var(--glow-intensity) * 1.5) var(--primary-color);
         }
 
-        /* Footer */
-        footer {
-            background: rgba(10, 10, 26, 0.9);
-            padding: 6rem 2rem;
+        .fullscreen-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10002;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .fullscreen-viewer.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .fullscreen-viewer img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 20px var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            perspective: 1000px;
+            padding: 2rem 1rem;
+            position: relative;
+            background: rgba(26, 26, 46, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s;
+            z-index: 1;
+            margin: 0 0.5rem;
         }
 
-        .footer-content {
-            transform-style: preserve-3d;
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(0, 170, 255, 0.2), transparent 70%);
+            animation: heroPulse 8s infinite;
+            z-index: -1;
+        }
+
+        @keyframes heroPulse {
+            0% { transform: scale(1) translateX(-50%) translateY(-50%); opacity: 0.2; }
+            50% { transform: scale(1.1) translateX(-50%) translateY(-50%); opacity: 0.4; }
+            100% { transform: scale(1) translateX(-50%) translateY(-50%); opacity: 0.2; }
+        }
+
+        .hero img {
+            width: clamp(150px, 25vw, 200px);
+            height: clamp(150px, 25vw, 200px);
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 170, 255, 0.5), 0 0 30px rgba(0, 170, 255, 0.8);
+            margin-bottom: 1.5rem;
+            animation: glow 2s infinite alternate, float 4s ease-in-out infinite;
+            z-index: 2;
+            position: relative;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 20px rgba(0, 170, 255, 0.5); }
+            100% { box-shadow: 0 0 30px rgba(0, 170, 255, 0.8); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 8vw, 4rem);
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 2px var(--primary-color), 0 0 4px var(--secondary-color);
+            z-index: 2;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            max-width: 90%;
+            z-index: 2;
+        }
+
+        .hero .cta-button {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+        }
+
+        .hero .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s;
+        }
+
+        .hero .cta-button:hover::before, .hero .cta-button:focus::before {
+            left: 100%;
+        }
+
+        .hero .cta-button:hover, .hero .cta-button:focus {
+            box-shadow: 0 0 calc(var(--glow-intensity) * 2) var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            padding: 3rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            scroll-margin-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #about {
+            min-height: auto;
+        }
+
+        #products, #gallery, #contact {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.5rem, 6vw, 3rem);
+            text-align: center;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 2px var(--primary-color), 0 0 4px var(--secondary-color);
+            position: relative;
+            z-index: 2;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            bottom: -10px;
+            left: 25%;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            animation: underlinePulse 2s infinite;
+            z-index: 2;
+        }
+
+        @keyframes underlinePulse {
+            0% { width: 50%; opacity: 1; }
+            50% { width: 70%; opacity: 0.5; }
+            100% { width: 50%; opacity: 1; }
+        }
+
+        section > * {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSection 1.5s forwards;
+        }
+
+        @keyframes fadeInSection {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .about {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 var(--glow-intensity) rgba(0, 170, 255, 0.3);
+            margin: 0 0.5rem;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-text {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            color: var(--text-muted);
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        }
+
+        .carousel-container {
+            max-width: 100%;
+            margin: 0 auto 3rem auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 0 var(--glow-intensity) rgba(0, 170, 255, 0.3);
+        }
+
+        .carousel {
+            display: flex;
             transition: transform 0.5s ease;
         }
 
-        footer:hover .footer-content {
-            transform: rotateX(5deg) translateZ(20px);
+        .carousel-item {
+            min-width: 100%;
+            padding: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: clamp(250px, 50vw, 400px);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .carousel-item img:hover, .carousel-item img:focus {
+            transform: scale(1.05);
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 0.5rem;
+        }
+
+        .carousel-controls button {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            width: clamp(40px, 8vw, 50px);
+            height: clamp(40px, 8vw, 50px);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .carousel-controls button:hover, .carousel-controls button:focus {
+            transform: scale(1.1);
+            box-shadow: 0 0 calc(var(--glow-intensity) * 1.5) var(--primary-color);
+        }
+
+        .video-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
+            align-items: center;
+        }
+
+        .video-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 var(--glow-intensity) rgba(0, 170, 255, 0.3);
+            transition: transform 0.3s;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeInVideo 0.5s forwards;
+            width: 90%;
+            max-width: 400px;
+            transform: rotate(2deg);
+            margin: 1rem 0;
+        }
+
+        .video-item:nth-child(even) {
+            transform: rotate(-2deg);
+            margin-left: 1rem;
+        }
+
+        @keyframes fadeInVideo {
+            0% { opacity: 0; transform: translateY(20px) rotate(2deg); }
+            100% { opacity: 1; transform: translateY(0) rotate(2deg); }
+        }
+
+        .video-item.hidden {
+            display: none;
+        }
+
+        .video-item:hover {
+            transform: translateY(-10px) rotate(0deg);
+        }
+
+        .video-item video {
+            width: 100%;
+            height: auto;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+        }
+
+        .video-item::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px dashed var(--primary-color);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.7;
+            animation: laserFramePulse 3s infinite;
+        }
+
+        @keyframes laserFramePulse {
+            0% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.02); }
+            100% { opacity: 0.7; transform: scale(1); }
+        }
+
+        .see-more-container {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .see-more-btn {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+        }
+
+        .see-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s;
+        }
+
+        .see-more-btn:hover::before, .see-more-btn:focus::before {
+            left: 100%;
+        }
+
+        .see-more-btn:hover, .see-more-btn:focus {
+            box-shadow: 0 0 calc(var(--glow-intensity) * 2) var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .contact {
+            text-align: center;
+            position: relative;
+            margin: 0 0.5rem;
+        }
+
+        .contact p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            padding: 0 0.5rem;
+        }
+
+        .contact a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 25px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .contact a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .contact a:hover::before, .contact a:focus::before {
+            left: 100%;
+        }
+
+        .contact a:hover, .contact a:focus {
+            color: var(--secondary-color);
+            box-shadow: 0 0 var(--glow-intensity) var(--secondary-color);
+        }
+
+        footer {
+            background: rgba(26, 26, 46, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
         }
 
         footer p {
-            color: var(--muted-text);
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
+            color: var(--text-muted);
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            margin-bottom: 1rem;
         }
 
-        footer .footer-links a {
+        footer .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        footer a {
             color: var(--primary-color);
             text-decoration: none;
-            margin: 0 2.5rem;
-            font-weight: 600;
-            font-size: 1.3rem;
-            transition: all 0.4s ease;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            transition: all 0.3s;
         }
 
-        footer .footer-links a:hover, footer .footer-links a:focus {
+        footer a:hover, footer a:focus {
             color: var(--secondary-color);
             text-shadow: 0 0 10px var(--secondary-color);
-            transform: translateY(-5px);
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .products-grid, .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            }
-
-            .about-content, .contact-content {
-                padding: 4rem;
-            }
-        }
-
-        @media (max-width: 768px) {
+        /* Desktop Adjustments */
+        @media (min-width: 768px) {
             header {
                 padding: 1rem 2rem;
-            }
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(10, 10, 26, 0.95);
-                flex-direction: column;
-                padding: 3rem;
-                box-shadow: 0 2px 20px var(--shadow-dark);
-            }
-
-            nav.active {
-                display: flex;
-            }
-
-            nav a {
-                margin: 2rem 0;
-                font-size: 1.4rem;
+                justify-content: center;
             }
 
             .hamburger {
-                display: block;
-                font-size: 2.8rem;
-                cursor: pointer;
-                color: var(--light-text);
-                transition: transform 0.3s ease;
+                display: none;
             }
 
-            .hamburger:hover {
-                transform: scale(1.1);
+            nav {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                padding: 0;
+                background: none;
+                box-shadow: none;
             }
 
-            .hero h1 {
-                font-size: clamp(2.5rem, 8vw, 4.5rem);
+            nav a {
+                margin: 0 1.5rem;
             }
 
-            .hero p {
-                font-size: clamp(1.2rem, 3vw, 1.8rem);
-            }
-
-            .cta-button {
-                padding: 1.2rem 3.5rem;
-                font-size: 1.3rem;
-            }
-
-            .products-grid, .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .product-item img {
-                height: 340px;
-            }
-
-            .about-content, .contact-content {
+            .hero {
                 padding: 3rem;
+                margin: 0 1rem;
             }
 
-            .whatsapp-button, .back-to-top {
-                width: 60px;
-                height: 60px;
-                font-size: 2rem;
+            .about-content {
+                flex-direction: row;
+                text-align: left;
             }
 
-            .whatsapp-button {
-                left: 1.5rem;
+            .carousel-item {
+                min-width: 33.33%;
             }
 
-            .back-to-top {
-                right: 1.5rem;
+            .video-gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+
+            .video-item {
+                transform: none;
+                margin: 0;
+            }
+
+            .video-item:nth-child(even) {
+                transform: none;
+                margin-left: 0;
+            }
+
+            .video-item::before {
+                display: none;
+            }
+
+            .contact-links {
+                gap: 2rem;
+                padding: 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .video-gallery {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
-    <audio id="background-music" loop>
-        <source src="/PSE/lofi.mp3" type="audio/mpeg">
-    </audio>
-
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <div class="preloader"></div>
+    <div class="audio-overlay">
+        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER PRETTY STITCHED ENGRAVING</button>
+    </div>
+    <div class="background">
+        <video class="background-video" src="https://engravinglaser.co.za/pse/loopinfinity.mp4" autoplay loop muted playsinline preload="auto"></video>
+        <div class="background-fallback"></div>
+    </div>
+    <div class="fullscreen-viewer">
+        <img src="" alt="Fullscreen Image">
+    </div>
+    <audio id="bg-audio" src="/music/lofi.mp3" loop preload="auto" style="display: none;"></audio>
     <header>
-        <div class="logo">
-            <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo">
-        </div>
-        <div class="hamburger">☰</div>
+        <div class="hamburger" role="button" aria-expanded="false" aria-label="Toggle navigation">☰</div>
         <nav>
             <a href="#about">About</a>
             <a href="#products">Products</a>
@@ -776,213 +1093,351 @@
             <a href="#contact">Contact</a>
         </nav>
     </header>
-
-    <section class="hero">
-        <video class="hero-video" src="https://engravinglaser.co.za/pse/loopinfinity.mp4" autoplay loop muted playsinline preload="auto"></video>
-        <div class="hero-video-fallback"></div>
-        <div class="hero-content">
-            <h1>Pretty Stitched Engraving</h1>
-            <p>Unleash your imagination with cinematic laser-engraved masterpieces.</p>
-            <a href="#products" class="cta-button">Discover the Art</a>
-        </div>
+    <a href="#" class="back-to-top" title="Back to Top" aria-label="Back to Top">↑</a>
+    <a href="https://wa.me/27832227144" class="whatsapp-button" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+        <img src="/PSE/whatsapp.jpg" alt="WhatsApp Icon" loading="lazy">
+    </a>
+    <button class="audio-toggle" title="Toggle Music" aria-label="Toggle Background Music">♫</button>
+    <section class="hero" id="main-content">
+        <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo - Laser Engraving" id="hero-image" loading="eager">
+        <h1>Pretty Stitched Engraving</h1>
+        <p>Custom Laser Cutting & Engraving</p>
+        <a href="#products" class="cta-button">Explore Products</a>
     </section>
-
-    <section id="about">
-        <h2>About Us</h2>
+    <section id="about" class="about">
         <div class="about-content">
             <div class="about-text">
-                <p>We specialize in creating personalized, high-quality engraved products that make perfect gifts for everyone.</p>
+                <h2>About Us</h2>
+                <p>We specialize in creating personalized, high quality engraved products that make perfect gifts for everyone.</p>
                 <p>Contact us at 0832227144 or prettystitchedengraving@gmail.com to bring your ideas to life!</p>
             </div>
         </div>
     </section>
-
     <section id="products">
         <h2>Our Products</h2>
-        <div class="products-grid">
-            <div class="product-item" data-fullscreen="/PSE/gallery1.jpg"><img src="/PSE/gallery1.jpg" alt="Custom Engraved Product 1 by Pretty Stitched Engraving" loading="lazy"></div>
-            <div class="product-item" data-fullscreen="/PSE/gallery2.jpg"><img src="/PSE/gallery2.jpg" alt="Custom Engraved Product 2 by Pretty Stitched Engraving" loading="lazy"></div>
-            <div class="product-item" data-fullscreen="/PSE/gallery3.jpg"><img src="/PSE/gallery3.jpg" alt="Custom Engraved Product 3 by Pretty Stitched Engraving" loading="lazy"></div>
-            <div class="product-item" data-fullscreen="/PSE/gallery4.jpg"><img src="/PSE/gallery4.jpg" alt="Custom Engraved Product 4 by Pretty Stitched Engraving" loading="lazy"></div>
-            <div class="product-item" data-fullscreen="/PSE/gallery5.jpg"><img src="/PSE/gallery5.jpg" alt="Custom Engraved Product 5 by Pretty Stitched Engraving" loading="lazy"></div>
-            <div class="product-item" data-fullscreen="/PSE/gallery6.jpg"><img src="/PSE/gallery6.jpg" alt="Custom Engraved Product 6 by Pretty Stitched Engraving" loading="lazy"></div>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item"><img src="/PSE/gallery1.jpg" alt="Custom Engraved Product 1 by Pretty Stitched Engraving" loading="lazy"></div>
+                <div class="carousel-item"><img src="/PSE/gallery2.jpg" alt="Custom Engraved Product 2 by Pretty Stitched Engraving" loading="lazy"></div>
+                <div class="carousel-item"><img src="/PSE/gallery3.jpg" alt="Custom Engraved Product 3 by Pretty Stitched Engraving" loading="lazy"></div>
+                <div class="carousel-item"><img src="/PSE/gallery4.jpg" alt="Custom Engraved Product 4 by Pretty Stitched Engraving" loading="lazy"></div>
+                <div class="carousel-item"><img src="/PSE/gallery5.jpg" alt="Custom Engraved Product 5 by Pretty Stitched Engraving" loading="lazy"></div>
+                <div class="carousel-item"><img src="/PSE/gallery6.jpg" alt="Custom Engraved Product 6 by Pretty Stitched Engraving" loading="lazy"></div>
+            </div>
+            <div class="carousel-controls">
+                <button class="prev" aria-label="Previous slide">←</button>
+                <button class="next" aria-label="Next slide">→</button>
+            </div>
         </div>
     </section>
-
     <section id="gallery">
         <h2>Video Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><video src="/PSE/Indigo Pet drive 2025.mp4" controls muted poster="/PSE/Indigo Pet drive 2025.png" loading="lazy"></video></div>
-            <div class="gallery-item"><video src="/PSE/Personalized pool cue.mp4" controls muted poster="/PSE/Personalized pool cue.png" loading="lazy"></video></div>
-            <div class="gallery-item"><video src="/PSE/Christmas present.mp4" controls muted poster="/PSE/Christmas present.png" loading="lazy"></video></div>
-            <div class="gallery-item"><video src="/PSE/Cheese lovers.mp4" controls muted poster="/PSE/Cheese lovers.png" loading="lazy"></video></div>
-            <div class="gallery-item"><video src="/PSE/Gym Water bottle with rope handle.mp4" controls muted poster="/PSE/Gym Water bottle with rope handle.png" loading="lazy"></video></div>
-            <div class="gallery-item"><video src="/PSE/Memes.mp4" controls muted poster="/PSE/Memes.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Rosegold wine tumbler.mp4" controls muted poster="/PSE/Rosegold wine tumbler.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/This rose will last forever.mp4" controls muted poster="/PSE/This rose will last forever.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Stitch wrap around.mp4" controls muted poster="/PSE/Stitch wrap around.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Moon Fairie.mp4" controls muted poster="/PSE/Moon Fairie.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Diaries.mp4" controls muted poster="/PSE/Diaries.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Monster Jam.mp4" controls muted poster="/PSE/Monster Jam.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Double Dragon.mp4" controls muted poster="/PSE/Double Dragon.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Spooky.mp4" controls muted poster="/PSE/Spooky.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Box cutting and engraving.mp4" controls muted poster="/PSE/Box cutting and engraving.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Merry Christmas.mp4" controls muted poster="/PSE/Merry Christmas.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Fairytale.mp4" controls muted poster="/PSE/Fairytale.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Rosegold Paisley wrap around.mp4" controls muted poster="/PSE/Rosegold Paisley wrap around.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Custom 20oz Tumbler Birthday Gift.mp4" controls muted poster="/PSE/Custom 20oz Tumbler Birthday Gift.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Pretty Stitched Engraving video.mp4" controls muted poster="/PSE/Pretty Stitched Engraving video.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Corporate gifts 3.8l water bottle.mp4" controls muted poster="/PSE/Corporate gifts 3.8l water bottle.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/KTM birthday present.mp4" controls muted poster="/PSE/KTM birthday present.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Fitness Freaks.mp4" controls muted poster="/PSE/Fitness Freaks.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Orange Dragon.mp4" controls muted poster="/PSE/Orange Dragon.png" loading="lazy"></video></div>
-            <div class="gallery-item hidden"><video src="/PSE/Wine tumbler.mp4" controls muted poster="/PSE/Wine tumbler.png" loading="lazy"></video></div>
+        <div class="video-gallery">
+            <div class="video-item"><video src="/PSE/Indigo Pet drive 2025.mp4" controls muted poster="/PSE/Indigo Pet drive 2025.png" loading="lazy"></video></div>
+            <div class="video-item"><video src="/PSE/Personalized pool cue.mp4" controls muted poster="/PSE/Personalized pool cue.png" loading="lazy"></video></div>
+            <div class="video-item"><video src="/PSE/Christmas present.mp4" controls muted poster="/PSE/Christmas present.png" loading="lazy"></video></div>
+            <div class="video-item"><video src="/PSE/Cheese lovers.mp4" controls muted poster="/PSE/Cheese lovers.png" loading="lazy"></video></div>
+            <div class="video-item"><video src="/PSE/Gym Water bottle with rope handle.mp4" controls muted poster="/PSE/Gym Water bottle with rope handle.png" loading="lazy"></video></div>
+            <div class="video-item"><video src="/PSE/Memes.mp4" controls muted poster="/PSE/Memes.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Rosegold wine tumbler.mp4" controls muted poster="/PSE/Rosegold wine tumbler.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/This rose will last forever.mp4" controls muted poster="/PSE/This rose will last forever.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Stitch wrap around.mp4" controls muted poster="/PSE/Stitch wrap around.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Moon Fairie.mp4" controls muted poster="/PSE/Moon Fairie.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Diaries.mp4" controls muted poster="/PSE/Diaries.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Monster Jam.mp4" controls muted poster="/PSE/Monster Jam.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Double Dragon.mp4" controls muted poster="/PSE/Double Dragon.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Spooky.mp4" controls muted poster="/PSE/Spooky.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Box cutting and engraving.mp4" controls muted poster="/PSE/Box cutting and engraving.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Merry Christmas.mp4" controls muted poster="/PSE/Merry Christmas.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Fairytale.mp4" controls muted poster="/PSE/Fairytale.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Rosegold Paisley wrap around.mp4" controls muted poster="/PSE/Rosegold Paisley wrap around.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Custom 20oz Tumbler Birthday Gift.mp4" controls muted poster="/PSE/Custom 20oz Tumbler Birthday Gift.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Pretty Stitched Engraving video.mp4" controls muted poster="/PSE/Pretty Stitched Engraving video.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Corporate gifts 3.8l water bottle.mp4" controls muted poster="/PSE/Corporate gifts 3.8l water bottle.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/KTM birthday present.mp4" controls muted poster="/PSE/KTM birthday present.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Fitness Freaks.mp4" controls muted poster="/PSE/Fitness Freaks.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Orange Dragon.mp4" controls muted poster="/PSE/Orange Dragon.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Wine tumbler.mp4" controls muted poster="/PSE/Wine tumbler.png" loading="lazy"></video></div>
         </div>
-        <button class="show-more">Show More</button>
+        <div class="see-more-container">
+            <button class="see-more-btn" aria-label="See more videos">See More</button>
+        </div>
     </section>
-
-    <section id="contact" class="contact-content">
+    <section id="contact" class="contact">
         <h2>Get in Touch</h2>
-        <div class="contact-content-inner">
-            <p>Reach out for custom orders or inquiries—we’re here to craft your vision into reality!</p>
-            <div class="contact-links">
-                <a href="mailto:prettystitchedengraving@gmail.com">Email</a>
-                <a href="tel:+27832227144">Call Us</a>
-                <a href="https://www.tiktok.com/@diedrake" target="_blank" rel="noopener noreferrer">TikTok</a>
-                <a href="https://www.facebook.com/share/1AGJEC1RfQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
-                <a href="https://wa.me/27832227144" title="Chat on WhatsApp">WhatsApp</a>
-            </div>
+        <p>Reach out for custom orders or inquiries!</p>
+        <div class="contact-links">
+            <a href="mailto:prettystitchedengraving@gmail.com">Email</a>
+            <a href="tel:+27832227144">Call Us</a>
+            <a href="https://www.tiktok.com/@diedrake" target="_blank" rel="noopener noreferrer">TikTok</a>
+            <a href="https://www.facebook.com/share/1AGJEC1RfQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://wa.me/27832227144" title="Chat on WhatsApp">WhatsApp</a>
         </div>
     </section>
-
     <footer>
-        <div class="footer-content">
-            <p>© 2025 Pretty Stitched Engraving | 5 Hilton Street, Centurion, South Africa, 0157</p>
-            <div class="footer-links">
-                <a href="mailto:prettystitchedengraving@gmail.com">Contact Us</a>
-                <a href="https://www.tiktok.com/@diedrake" target="_blank" rel="noopener noreferrer">TikTok</a>
-                <a href="https://www.facebook.com/share/1AGJEC1RfQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
-            </div>
+        <p>© 2025 Pretty Stitched Engraving</p>
+        <p>5 Hilton Street, Centurion, South Africa, 0157</p>
+        <div class="footer-links">
+            <a href="mailto:prettystitchedengraving@gmail.com">Contact Us</a>
+            <a href="https://www.tiktok.com/@diedrake" target="_blank" rel="noopener noreferrer">TikTok</a>
+            <a href="https://www.facebook.com/share/1AGJEC1RfQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
         </div>
     </footer>
 
-    <a href="https://wa.me/27832227144" class="whatsapp-button" title="Chat on WhatsApp"></a>
-    <a href="#" class="back-to-top" title="Back to Top">↑</a>
-
-    <div class="fullscreen-modal">
-        <span class="close-modal">✕</span>
-        <img src="" alt="Fullscreen Product Image">
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
         // Particles.js Configuration
         particlesJS('particles-js', {
             particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: '#00d4ff' },
+                number: { value: 60, density: { enable: true, value_area: 800 } },
+                color: { value: '#00aaff' },
                 shape: { type: 'circle' },
                 opacity: { value: 0.5, random: true },
                 size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: '#00d4ff', opacity: 0.4, width: 1 },
+                line_linked: { enable: true, distance: 150, color: '#00aaff', opacity: 0.4, width: 1 },
                 move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out' }
             },
             interactivity: {
                 detect_on: 'canvas',
                 events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
-                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+                modes: { repulse: { distance: 80, duration: 0.4 }, push: { particles_nb: 4 } }
             },
             retina_detect: true
         });
 
-        // Background Music
-        const music = document.getElementById('background-music');
-        music.volume = 0.3;
-        music.play().catch(() => console.log('Autoplay prevented; user interaction needed'));
+        const audio = document.getElementById('bg-audio');
+        audio.volume = 0.3;
 
-        // Hamburger Menu Toggle
+        const overlay = document.querySelector('.audio-overlay');
+        const overlayButton = overlay.querySelector('button');
+        overlayButton.addEventListener('click', () => {
+            audio.play().then(() => {
+                overlay.classList.add('hidden');
+                document.querySelector('.hero').style.opacity = 1;
+            }).catch(error => {
+                console.error("Audio Play Error:", error);
+                overlay.classList.add('hidden');
+                document.querySelector('.hero').style.opacity = 1;
+            });
+        });
+
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('nav');
         hamburger.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
+            const isExpanded = nav.classList.toggle('active');
+            hamburger.textContent = isExpanded ? '✕' : '☰';
+            hamburger.setAttribute('aria-expanded', isExpanded);
         });
 
-        // Header and Buttons Scroll Effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            const backToTop = document.querySelector('.back-to-top');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-                backToTop.classList.add('visible');
-            } else {
-                header.classList.remove('scrolled');
-                backToTop.classList.remove('visible');
-            }
-
-            // Section Fade-In Animation
-            document.querySelectorAll('section').forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.75) {
-                    section.classList.add('visible');
-                }
-            });
-        });
-
-        // Smooth Scroll
-        document.querySelector('.back-to-top').addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
                 nav.classList.remove('active');
                 hamburger.textContent = '☰';
+                hamburger.setAttribute('aria-expanded', 'false');
             });
         });
 
-        // Fullscreen Product Image
-        const productItems = document.querySelectorAll('.product-item');
-        const modal = document.querySelector('.fullscreen-modal');
-        const modalImg = modal.querySelector('img');
-        const closeModal = modal.querySelector('.close-modal');
+        function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+                if (!inThrottle) {
+                    func.apply(this, arguments);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        }
 
-        productItems.forEach(item => {
-            item.addEventListener('click', () => {
-                modalImg.src = item.dataset.fullscreen;
-                modal.classList.add('active');
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', throttle(() => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                document.querySelector('header').classList.add('hidden');
+            } else {
+                document.querySelector('header').classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+            const backToTop = document.querySelector('.back-to-top');
+            if (scrollTop > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }, 100));
+
+        let trailCount = 0;
+        const maxTrails = 30;
+        document.addEventListener('mousemove', throttle((e) => {
+            if (trailCount < maxTrails) {
+                const spark = document.createElement('div');
+                spark.className = Math.random() > 0.3 ? 'engraving-spark' : 'engraving-flare';
+                spark.style.left = `${e.clientX}px`;
+                spark.style.top = `${e.clientY}px`;
+                document.body.appendChild(spark);
+                trailCount++;
+                setTimeout(() => {
+                    spark.remove();
+                    trailCount--;
+                }, spark.className === 'engraving-spark' ? 400 : 500);
+            }
+        }, 20));
+
+        const audioToggle = document.querySelector('.audio-toggle');
+        audioToggle.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                audioToggle.textContent = '♫';
+            } else {
+                audio.pause();
+                audioToggle.textContent = '♪';
+            }
+        });
+
+        const videos = document.querySelectorAll('.video-item video');
+        videos.forEach(video => {
+            video.addEventListener('play', () => {
+                audio.pause();
+            });
+            video.addEventListener('pause', () => {
+                audio.play();
+            });
+            video.addEventListener('ended', () => {
+                audio.play();
             });
         });
 
-        closeModal.addEventListener('click', () => {
-            modal.classList.remove('active');
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) modal.classList.remove('active');
-        });
-
-        // Show More Gallery
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const showMoreBtn = document.querySelector('.show-more');
+        const seeMoreBtn = document.querySelector('.see-more-btn');
+        const hiddenVideos = document.querySelectorAll('.video-item.hidden');
         let showingAll = false;
-
-        showMoreBtn.addEventListener('click', () => {
+        seeMoreBtn.addEventListener('click', () => {
             showingAll = !showingAll;
-            galleryItems.forEach((item, index) => {
-                if (index >= 6) item.classList.toggle('hidden', !showingAll);
+            hiddenVideos.forEach(video => {
+                video.classList.toggle('hidden', !showingAll);
             });
-            showMoreBtn.textContent = showingAll ? 'Show Less' : 'Show More';
+            seeMoreBtn.textContent = showingAll ? 'See Less' : 'See More';
+        });
+
+        VanillaTilt.init(document.querySelectorAll('.video-item'), {
+            max: 10,
+            speed: 400,
+            glare: true,
+            'max-glare': 0.4
+        });
+
+        const fullscreenViewer = document.querySelector('.fullscreen-viewer');
+        const fullscreenImage = fullscreenViewer.querySelector('img');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+
+        carouselItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                fullscreenImage.src = imgSrc;
+                fullscreenViewer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        fullscreenViewer.addEventListener('click', () => {
+            fullscreenViewer.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && fullscreenViewer.classList.contains('active')) {
+                fullscreenViewer.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        const carousel = document.querySelector('.carousel');
+        const items = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let index = 0;
+        let visibleItems = 1;
+
+        function updateCarousel() {
+            const itemWidth = items[0].offsetWidth;
+            carousel.style.transform = `translateX(-${index * itemWidth}px)`;
+            visibleItems = window.innerWidth >= 768 ? 3 : 1;
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index >= items.length - visibleItems;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (index < items.length - visibleItems) {
+                index++;
+                updateCarousel();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+                updateCarousel();
+            }
+        });
+
+        window.addEventListener('resize', updateCarousel);
+
+        function createLaserBeam() {
+            const beam = document.createElement('div');
+            beam.className = 'laser-beam';
+            const isVertical = Math.random() > 0.5;
+            if (isVertical) {
+                beam.classList.add('vertical');
+                beam.style.left = `${Math.random() * 100}vw`;
+                beam.style.top = '0';
+            } else {
+                beam.classList.add('horizontal');
+                beam.style.top = `${Math.random() * 100}vh`;
+                beam.style.left = '0';
+            }
+            document.body.appendChild(beam);
+            setTimeout(() => {
+                beam.remove();
+            }, 3000);
+        }
+
+        // Ensure Video Loads 100%
+        const backgroundVideo = document.querySelector('.background-video');
+        const backgroundFallback = document.querySelector('.background-fallback');
+        backgroundVideo.addEventListener('error', (e) => {
+            console.error('Video failed to load:', e);
+            backgroundVideo.style.display = 'none';
+            backgroundFallback.style.display = 'block';
+        });
+        backgroundVideo.addEventListener('loadeddata', () => {
+            console.log('Video loaded successfully');
+            backgroundVideo.style.display = 'block';
+            backgroundFallback.style.display = 'none';
+        });
+        if (!backgroundVideo.playing) {
+            backgroundVideo.load();
+            backgroundVideo.play().catch(e => console.error('Autoplay failed:', e));
+        }
+
+        window.addEventListener('load', () => {
+            document.querySelector('.preloader').classList.add('hidden');
+            updateCarousel();
+            setInterval(() => {
+                if (Math.random() > 0.5) {
+                    createLaserBeam();
+                }
+            }, 1500);
+
+            const heroImage = document.getElementById('hero-image');
+            heroImage.addEventListener('load', () => {
+                heroImage.style.opacity = 1;
+            });
+            heroImage.style.opacity = 0;
+            heroImage.src = '/PSE/pseLogoO.jpg';
         });
 
         // Google Analytics Event Tracking
-        document.querySelectorAll('.contact-links a, .whatsapp-button, .footer-links a, .product-item').forEach(link => {
+        document.querySelectorAll('.contact-links a, .whatsapp-button, .footer-links a').forEach(link => {
             link.addEventListener('click', (e) => {
-                const label = e.target.textContent.trim() || e.target.getAttribute('title') || 'Product Image View';
+                const label = e.target.textContent.trim() || e.target.getAttribute('title');
                 gtag('event', 'click', {
                     'event_category': 'Interaction',
                     'event_label': label,
@@ -990,25 +1445,6 @@
                 });
             });
         });
-
-        // Ensure Video Loads 100%
-        const heroVideo = document.querySelector('.hero-video');
-        const fallback = document.querySelector('.hero-video-fallback');
-        heroVideo.addEventListener('error', (e) => {
-            console.error('Video failed to load:', e);
-            heroVideo.style.display = 'none';
-            fallback.style.display = 'block';
-        });
-        heroVideo.addEventListener('loadeddata', () => {
-            console.log('Video loaded successfully');
-            heroVideo.style.display = 'block';
-            fallback.style.display = 'none';
-        });
-        // Force reload if not playing
-        if (!heroVideo.playing) {
-            heroVideo.load();
-            heroVideo.play().catch(e => console.error('Autoplay failed:', e));
-        }
     </script>
 </body>
 </html>
