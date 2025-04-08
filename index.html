@@ -219,6 +219,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: opacity 0.8s ease;
         }
 
         .background-video {
@@ -382,7 +383,7 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: opacity 0.3s ease, transform 0.3s;
         }
 
@@ -587,6 +588,33 @@
             100% { transform: scale(1) translateX(-50%) translateY(-50%); opacity: 0.3; }
         }
 
+        .hero .title-container {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            order: 1;
+            margin-top: 4rem;
+        }
+
+        .hero .title-container span {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 6vw, 3.5rem);
+            background: linear-gradient(90deg, #00aaff, #ff00ff, #ffaa00, #00aaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px rgba(255, 255, 255, 0.8);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.3rem 0.5rem;
+            border-radius: 8px;
+            z-index: 2;
+            letter-spacing: 1px;
+            font-weight: 900;
+            box-shadow: 0 0 2px var(--primary-color);
+        }
+
         .hero img {
             width: clamp(200px, 30vw, 250px);
             height: clamp(200px, 30vw, 250px);
@@ -595,10 +623,43 @@
             animation: glow 2s infinite alternate;
             z-index: 2;
             order: 2;
+            position: relative;
         }
 
         .hero img.explode {
             animation: glow 2s infinite alternate, explodeFade 5s forwards;
+        }
+
+        .hero img.explode::before,
+        .hero img.explode::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('/PSE/pseLogoO.jpg') center/cover no-repeat;
+            z-index: 3;
+        }
+
+        .hero img.explode::before {
+            top: -20px;
+            left: -20px;
+            animation: pieceToCube1 2s ease-in forwards 3s;
+        }
+
+        .hero img.explode::after {
+            bottom: -20px;
+            right: -20px;
+            animation: pieceToCube2 2s ease-in forwards 3s;
+        }
+
+        @keyframes pieceToCube1 {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(-150px, -150px) scale(0.5); opacity: 0; }
+        }
+
+        @keyframes pieceToCube2 {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(150px, 150px) scale(0.5); opacity: 0; }
         }
 
         @keyframes glow {
@@ -610,22 +671,6 @@
             0% { transform: scale(1); opacity: 1; }
             80% { transform: scale(1.2); opacity: 1; }
             100% { transform: scale(2); opacity: 0; }
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.8rem, 10vw, 6rem);
-            color: #ffffff;
-            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px rgba(255, 255, 255, 0.8);
-            background: rgba(0, 0, 0, 0.5);
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            z-index: 2;
-            order: 1;
-            margin-top: 4rem;
-            letter-spacing: 2px;
-            font-weight: 900;
-            box-shadow: 0 0 2px var(--primary-color);
         }
 
         .hero p {
@@ -1154,7 +1199,11 @@
     </a>
     <button class="audio-toggle" title="Toggle Music" aria-label="Toggle Background Music">♫</button>
     <section class="hero" id="main-content">
-        <h1>Pretty Stitched Engraving</h1>
+        <div class="title-container">
+            <span>Pretty</span>
+            <span>Stitched</span>
+            <span>Engraving</span>
+        </div>
         <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo - Laser Engraving" id="hero-image" loading="eager">
         <p>Custom Laser Cutting & Engraving</p>
         <a href="#products" class="cta-button">Explore Products</a>
@@ -1312,6 +1361,11 @@
         let lastScrollTop = 0;
         window.addEventListener('scroll', throttle(() => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const background = document.querySelector('.background');
+            const fadeOutPoint = window.innerHeight * 0.5;
+            const opacity = Math.max(0, 1 - scrollTop / fadeOutPoint);
+            background.style.opacity = opacity;
+
             if (scrollTop > lastScrollTop) {
                 document.querySelector('header').classList.add('hidden');
             } else {
