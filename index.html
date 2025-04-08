@@ -470,7 +470,6 @@
             width: clamp(50px, 10vw, 70px);
             height: clamp(50px, 10vw, 70px);
             transition: transform 0.3s;
-            box-shadow: 0 0 var(--glow-intensity) rgba(37, 211, 102, 0.7);
         }
 
         .whatsapp-button:hover img, .whatsapp-button:focus img {
@@ -593,9 +592,13 @@
             height: clamp(200px, 30vw, 250px);
             border: 4px solid var(--primary-color);
             box-shadow: 0 0 25px rgba(0, 170, 255, 0.7), 0 0 40px rgba(0, 170, 255, 0.9);
-            animation: glow 2s infinite alternate, explodeFade 5s forwards;
+            animation: glow 2s infinite alternate;
             z-index: 2;
             order: 2;
+        }
+
+        .hero img.explode {
+            animation: glow 2s infinite alternate, explodeFade 5s forwards;
         }
 
         @keyframes glow {
@@ -611,30 +614,34 @@
 
         .hero h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.5rem, 10vw, 5rem);
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: clamp(2.8rem, 10vw, 6rem);
+            color: #ffffff;
             text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px rgba(255, 255, 255, 0.8);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
             z-index: 2;
             order: 1;
             margin-top: 4rem;
             letter-spacing: 2px;
-            font-weight: 700;
+            font-weight: 900;
             box-shadow: 0 0 2px var(--primary-color);
         }
 
         .hero p {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.2rem, 4vw, 2rem);
-            color: var(--text-muted);
+            font-size: clamp(1.4rem, 4vw, 2.5rem);
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
             margin-bottom: 2rem;
             max-width: 90%;
-            text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
             z-index: 2;
             order: 3;
             letter-spacing: 1px;
-            font-weight: 400;
+            font-weight: 700;
             box-shadow: 0 0 2px var(--primary-color);
         }
 
@@ -1268,6 +1275,11 @@
             }
             overlay.classList.add('hidden');
             document.querySelector('.hero').style.opacity = 1;
+            const heroImage = document.getElementById('hero-image');
+            heroImage.classList.add('explode');
+            setTimeout(() => {
+                document.querySelector('.background-cube').classList.add('show-logos');
+            }, 5000);
         });
 
         const hamburger = document.querySelector('.hamburger');
@@ -1357,7 +1369,7 @@
                 if (video.paused) {
                     video.play().then(() => {
                         audio.pause();
-            }).catch(error => console.warn("Video play failed:", error));
+                    }).catch(error => console.warn("Video play failed:", error));
                 } else {
                     video.pause();
                 }
@@ -1502,11 +1514,6 @@
             heroImage.src = '/PSE/pseLogoO.jpg';
 
             document.querySelector('.hero').classList.add('visible');
-
-            // Show logos on cube after explosion
-            setTimeout(() => {
-                document.querySelector('.background-cube').classList.add('show-logos');
-            }, 5000); // Matches the 5s duration of explodeFade animation
         });
 
         document.querySelectorAll('.contact-links a, .whatsapp-button, .footer-links a').forEach(link => {
