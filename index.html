@@ -16,6 +16,7 @@
     <meta name="twitter:title" content="Pretty Stitched Engraving - Custom Laser Engraving & Cutting">
     <meta name="twitter:description" content="Custom laser cutting and engraving services in Centurion, South Africa.">
     <meta name="twitter:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
+    <!-- Updated favicon and icon links -->
     <link rel="icon" type="image/x-icon" href="/PSE/favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="/PSE/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/PSE/apple-icon-60x60.png">
@@ -35,6 +36,7 @@
     <meta name="msapplication-TileImage" content="/PSE/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <title>Pretty Stitched Engraving - Custom Laser Engraving & Cutting</title>
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWZS8F10JE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -98,13 +100,223 @@
             color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .engraving-spark {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            background: linear-gradient(45deg, var(--primary-color), #ffffff, var(--secondary-color));
+            pointer-events: none;
+            z-index: 10001;
+            opacity: 0.8;
+            box-shadow: 0 0 10px var(--primary-color), 0 0 15px var(--secondary-color);
+            animation: engravingFlicker 0.4s ease-out forwards;
+        }
+
+        .engraving-flare {
+            position: fixed;
+            width: 3px;
+            height: 8px;
+            background: linear-gradient(var(--primary-color), transparent);
+            pointer-events: none;
+            z-index: 10001;
+            opacity: 0.6;
+            box-shadow: 0 0 5px var(--primary-color);
+            animation: flareBurst 0.5s ease-out forwards;
+        }
+
+        @keyframes engravingFlicker {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            50% { transform: scale(1.3) rotate(45deg); opacity: 0.5; }
+            100% { transform: scale(0) rotate(90deg); opacity: 0; }
+        }
+
+        @keyframes flareBurst {
+            0% { transform: translateY(0) rotate(30deg); opacity: 0.6; }
+            100% { transform: translateY(10px) rotate(30deg); opacity: 0; }
+        }
+
+        .laser-beam {
+            position: fixed;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            box-shadow: 0 0 10px var(--primary-color);
+            animation: laserBeamFade 3s ease-in-out forwards;
+        }
+
+        .laser-beam.vertical {
+            width: 2px;
+            height: 100vh;
+            animation: laserBeamFadeVertical 3s ease-in-out forwards;
+        }
+
+        .laser-beam.horizontal {
+            width: 100vw;
+            height: 2px;
+            animation: laserBeamFadeHorizontal 3s ease-in-out forwards;
+        }
+
+        @keyframes laserBeamFade {
+            0% { opacity: 0; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes laserBeamFadeHorizontal {
+            0% { opacity: 0; transform: translateX(-100%); }
+            20% { opacity: 0.6; transform: translateX(-50%); }
+            80% { opacity: 0.6; transform: translateX(50%); }
+            100% { opacity: 0; transform: translateX(100%); }
+        }
+
+        @keyframes laserBeamFadeVertical {
+            0% { opacity: 0; transform: translateY(-100%); }
+            20% { opacity: 0.6; transform: translateY(-50%); }
+            80% { opacity: 0.6; transform: translateY(50%); }
+            100% { opacity: 0; transform: translateY(100%); }
+        }
+
+        .background {
+            position: fixed;
+            inset: 0;
+            background: url('/PSE/background.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .background::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .background {
+                background-attachment: scroll;
+                background-size: contain;
+                background-position: center top;
+            }
+        }
+
+        .audio-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 13, 27, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease;
+        }
+
+        .audio-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .audio-overlay button {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 4rem;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+        }
+
+        .audio-overlay button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: hologramSwipe 2.5s infinite;
+        }
+
+        @keyframes hologramSwipe {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .audio-overlay button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 calc(var(--glow-intensity) * 1.5) var(--primary-color);
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+
+        .preloader::before {
+            content: '';
+            width: 60px;
+            height: 60px;
+            border: 6px solid var(--primary-color);
+            border-top: 6px solid var(--secondary-color);
+            border-radius: 50%;
+            animation: cyberSpin 1.2s linear infinite;
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        @keyframes cyberSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
         header {
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
-            background: rgba(26, 26, 46, 0.5);
+            background: rgba(26, 26, 46, 0.85);
             backdrop-filter: blur(15px);
             padding: 1rem 2rem;
             display: flex;
@@ -168,34 +380,136 @@
             transform: scale(1.2);
         }
 
+        .whatsapp-button, .audio-toggle, .back-to-top {
+            position: fixed;
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-button {
+            bottom: 6rem;
+            left: 2rem;
+        }
+
+        .whatsapp-button img {
+            width: 70px;
+            height: 70px;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-button:hover img, .whatsapp-button:focus img {
+            transform: scale(1.15);
+        }
+
+        .audio-toggle {
+            bottom: 2rem;
+            left: 2rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .audio-toggle:hover, .audio-toggle:focus {
+            transform: scale(1.15);
+            box-shadow: 0 0 calc(var(--glow-intensity) * 1.5) var(--primary-color);
+        }
+
+        .back-to-top {
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 0 var(--glow-intensity) var(--primary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            z-index: 1000;
+            opacity: 0;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover, .back-to-top:focus {
+            transform: scale(1.15);
+            box-shadow: 0 0 calc(var(--glow-intensity) * 1.5) var(--primary-color);
+        }
+
+        .fullscreen-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10002;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .fullscreen-viewer.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .fullscreen-viewer img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
         .hero {
-            position: relative;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 3rem;
+            position: relative;
+            background: rgba(26, 26, 46, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s;
             z-index: 1;
         }
 
-        .hero-video {
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(0, 170, 255, 0.2), transparent 70%);
+            animation: heroPulse 8s infinite;
             z-index: -1;
-            filter: brightness(0.7);
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-            animation: fadeIn 2s forwards 1s;
+        @keyframes heroPulse {
+            0% { transform: scale(1) translateX(-50%) translateY(-50%); opacity: 0.2; }
+            50% { transform: scale(1.1) translateX(-50%) translateY(-50%); opacity: 0.4; }
+            100% { transform: scale(1) translateX(-50%) translateY(-50%); opacity: 0.2; }
         }
 
         .hero img {
@@ -206,6 +520,8 @@
             box-shadow: 0 0 20px rgba(0, 170, 255, 0.5), 0 0 30px rgba(0, 170, 255, 0.8);
             margin-bottom: 2rem;
             animation: glow 2s infinite alternate, float 4s ease-in-out infinite;
+            z-index: 99999;
+            position: relative;
         }
 
         @keyframes glow {
@@ -226,6 +542,7 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
             text-shadow: 0 0 2px var(--primary-color), 0 0 4px var(--secondary-color);
+            z-index: 2;
         }
 
         .hero p {
@@ -233,6 +550,7 @@
             color: var(--text-muted);
             margin-bottom: 2rem;
             max-width: 700px;
+            z-index: 2;
         }
 
         .hero .cta-button {
@@ -248,6 +566,7 @@
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            z-index: 2;
         }
 
         .hero .cta-button::before {
@@ -284,6 +603,17 @@
             z-index: 1;
         }
 
+        #about {
+            min-height: auto;
+        }
+
+        #products, #gallery, #contact {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
         section h2 {
             font-family: 'Orbitron', sans-serif;
             font-size: clamp(2rem, 5vw, 3rem);
@@ -294,6 +624,8 @@
             margin-bottom: 3rem;
             text-transform: uppercase;
             text-shadow: 0 0 2px var(--primary-color), 0 0 4px var(--secondary-color);
+            position: relative;
+            z-index: 2;
         }
 
         section h2::after {
@@ -305,12 +637,24 @@
             left: 25%;
             background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
             animation: underlinePulse 2s infinite;
+            z-index: 2;
         }
 
         @keyframes underlinePulse {
             0% { width: 50%; opacity: 1; }
             50% { width: 70%; opacity: 0.5; }
             100% { width: 50%; opacity: 1; }
+        }
+
+        section > * {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSection 1.5s forwards;
+        }
+
+        @keyframes fadeInSection {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .about {
@@ -361,13 +705,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 400px;
+            height: 400px; /* Fixed height for desktop */
         }
 
         .carousel-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
             border-radius: 15px;
             border: 2px solid var(--primary-color);
             box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
@@ -411,6 +755,7 @@
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
 
         .video-item {
@@ -419,6 +764,18 @@
             overflow: hidden;
             box-shadow: 0 0 var(--glow-intensity) rgba(0, 170, 255, 0.3);
             transition: transform 0.3s;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeInVideo 0.5s forwards;
+        }
+
+        @keyframes fadeInVideo {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .video-item.hidden {
+            display: none;
         }
 
         .video-item:hover {
@@ -473,8 +830,66 @@
             transform: scale(1.1);
         }
 
+        @media (max-width: 768px) {
+            .carousel-item {
+                min-width: 100%; /* Full width on mobile */
+                height: 300px; /* Adjusted height for mobile */
+            }
+
+            .carousel-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Maintains aspect ratio and fills container */
+            }
+
+            .video-gallery {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 3rem;
+            }
+
+            .video-item {
+                width: 90%;
+                max-width: 350px;
+                transform: rotate(2deg);
+                margin: 1rem 0;
+                position: relative;
+            }
+
+            .video-item:nth-child(even) {
+                transform: rotate(-2deg);
+                margin-left: 2rem;
+            }
+
+            .video-item::before {
+                content: '';
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+                border: 2px dashed var(--primary-color);
+                border-radius: 20px;
+                z-index: -1;
+                opacity: 0.7;
+                animation: laserFramePulse 3s infinite;
+            }
+
+            @keyframes laserFramePulse {
+                0% { opacity: 0.7; transform: scale(1); }
+                50% { opacity: 0.4; transform: scale(1.02); }
+                100% { opacity: 0.7; transform: scale(1); }
+            }
+
+            .video-item.hidden {
+                display: none;
+            }
+        }
+
         .contact {
             text-align: center;
+            position: relative;
         }
 
         .contact p {
@@ -533,6 +948,8 @@
             padding: 3rem;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
         }
 
         footer p {
@@ -555,6 +972,11 @@
         }
 
         @media (max-width: 768px) {
+            .audio-overlay button {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+
             header {
                 justify-content: flex-end;
             }
@@ -584,6 +1006,39 @@
                 font-size: 1.3rem;
             }
 
+            .whatsapp-button {
+                bottom: 5rem;
+                left: 1.5rem;
+            }
+
+            .whatsapp-button img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .audio-toggle {
+                bottom: 1.5rem;
+                left: 1.5rem;
+                font-size: 1.5rem;
+            }
+
+            .back-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .audio-overlay button {
+                font-size: 0.9rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
             .hero h1 {
                 font-size: clamp(1.8rem, 4vw, 2.5rem);
             }
@@ -591,27 +1046,26 @@
             .hero p {
                 font-size: clamp(1rem, 2.5vw, 1.2rem);
             }
+        }
 
-            .carousel-item {
-                min-width: 100%;
-                height: 300px;
-            }
-
+        @media (max-width: 1024px) {
             .video-gallery {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 3rem;
-            }
-
-            .video-item {
-                width: 90%;
-                max-width: 350px;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
         }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <div class="preloader"></div>
+    <div class="audio-overlay">
+        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER PRETTY STITCHED ENGRAVING</button>
+    </div>
+    <div class="background"></div>
+    <div class="fullscreen-viewer">
+        <img src="" alt="Fullscreen Image">
+    </div>
+    <audio id="bg-audio" src="/music/lofi.mp3" loop preload="auto" style="display: none;"></audio>
     <header>
         <div class="hamburger" role="button" aria-expanded="false" aria-label="Toggle navigation">☰</div>
         <nav>
@@ -621,14 +1075,16 @@
             <a href="#contact">Contact</a>
         </nav>
     </header>
+    <a href="#" class="back-to-top" title="Back to Top" aria-label="Back to Top">↑</a>
+    <a href="https://wa.me/27832227144" class="whatsapp-button" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+        <img src="/PSE/whatsapp.jpg" alt="WhatsApp Icon" loading="lazy">
+    </a>
+    <button class="audio-toggle" title="Toggle Music" aria-label="Toggle Background Music">♫</button>
     <section class="hero" id="main-content">
-        <video class="hero-video" src="/pse/infinityloop.mp4" autoplay loop muted playsinline></video>
-        <div class="hero-content">
-            <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo - Laser Engraving" id="hero-image" loading="eager">
-            <h1>Pretty Stitched Engraving</h1>
-            <p>Custom Laser Cutting & Engraving</p>
-            <a href="#products" class="cta-button">Explore Products</a>
-        </div>
+        <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo - Laser Engraving" id="hero-image" loading="eager">
+        <h1>Pretty Stitched Engraving</h1>
+        <p>Custom Laser Cutting & Engraving</p>
+        <a href="#products" class="cta-button">Explore Products</a>
     </section>
     <section id="about" class="about">
         <div class="about-content">
@@ -665,6 +1121,25 @@
             <div class="video-item"><video src="/PSE/Cheese lovers.mp4" controls muted poster="/PSE/Cheese lovers.png" loading="lazy"></video></div>
             <div class="video-item"><video src="/PSE/Gym Water bottle with rope handle.mp4" controls muted poster="/PSE/Gym Water bottle with rope handle.png" loading="lazy"></video></div>
             <div class="video-item"><video src="/PSE/Memes.mp4" controls muted poster="/PSE/Memes.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Rosegold wine tumbler.mp4" controls muted poster="/PSE/Rosegold wine tumbler.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/This rose will last forever.mp4" controls muted poster="/PSE/This rose will last forever.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Stitch wrap around.mp4" controls muted poster="/PSE/Stitch wrap around.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Moon Fairie.mp4" controls muted poster="/PSE/Moon Fairie.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Diaries.mp4" controls muted poster="/PSE/Diaries.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Monster Jam.mp4" controls muted poster="/PSE/Monster Jam.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Double Dragon.mp4" controls muted poster="/PSE/Double Dragon.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Spooky.mp4" controls muted poster="/PSE/Spooky.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Box cutting and engraving.mp4" controls muted poster="/PSE/Box cutting and engraving.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Merry Christmas.mp4" controls muted poster="/PSE/Merry Christmas.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Fairytale.mp4" controls muted poster="/PSE/Fairytale.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Rosegold Paisley wrap around.mp4" controls muted poster="/PSE/Rosegold Paisley wrap around.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Custom 20oz Tumbler Birthday Gift.mp4" controls muted poster="/PSE/Custom 20oz Tumbler Birthday Gift.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Pretty Stitched Engraving video.mp4" controls muted poster="/PSE/Pretty Stitched Engraving video.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Corporate gifts 3.8l water bottle.mp4" controls muted poster="/PSE/Corporate gifts 3.8l water bottle.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/KTM birthday present.mp4" controls muted poster="/PSE/KTM birthday present.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Fitness Freaks.mp4" controls muted poster="/PSE/Fitness Freaks.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Orange Dragon.mp4" controls muted poster="/PSE/Orange Dragon.png" loading="lazy"></video></div>
+            <div class="video-item hidden"><video src="/PSE/Wine tumbler.mp4" controls muted poster="/PSE/Wine tumbler.png" loading="lazy"></video></div>
         </div>
         <div class="see-more-container">
             <button class="see-more-btn" aria-label="See more videos">See More</button>
@@ -681,8 +1156,7 @@
         </div>
     </section>
     <footer>
-        <p>© 2025 Pretty Stitched Engraving | Personalised Laser Engravings & Cutting</p>
-        <p>5 Hilton Street, Centurion, South Africa, 0157</p>
+        <p>© 2025 Pretty Stitched Engraving | 5 Hilton Street, Centurion, South Africa, 0157</p>
         <div class="footer-links">
             <a href="mailto:prettystitchedengraving@gmail.com">Contact Us</a>
             <a href="https://www.tiktok.com/@diedrake" target="_blank" rel="noopener noreferrer">TikTok</a>
@@ -691,6 +1165,22 @@
     </footer>
 
     <script>
+        const audio = document.getElementById('bg-audio');
+        audio.volume = 0.3;
+
+        const overlay = document.querySelector('.audio-overlay');
+        const overlayButton = overlay.querySelector('button');
+        overlayButton.addEventListener('click', () => {
+            audio.play().then(() => {
+                overlay.classList.add('hidden');
+                document.querySelector('.hero').style.opacity = 1;
+            }).catch(error => {
+                console.error("Audio Play Error:", error);
+                overlay.classList.add('hidden');
+                document.querySelector('.hero').style.opacity = 1;
+            });
+        });
+
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('nav');
         hamburger.addEventListener('click', () => {
@@ -707,8 +1197,19 @@
             });
         });
 
+        function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+                if (!inThrottle) {
+                    func.apply(this, arguments);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        }
+
         let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', throttle(() => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             if (scrollTop > lastScrollTop) {
                 document.querySelector('header').classList.add('hidden');
@@ -716,6 +1217,95 @@
                 document.querySelector('header').classList.remove('hidden');
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+            const backToTop = document.querySelector('.back-to-top');
+            if (scrollTop > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }, 100));
+
+        let trailCount = 0;
+        const maxTrails = 30;
+        document.addEventListener('mousemove', throttle((e) => {
+            if (trailCount < maxTrails) {
+                const spark = document.createElement('div');
+                spark.className = Math.random() > 0.3 ? 'engraving-spark' : 'engraving-flare';
+                spark.style.left = `${e.clientX}px`;
+                spark.style.top = `${e.clientY}px`;
+                document.body.appendChild(spark);
+                trailCount++;
+                setTimeout(() => {
+                    spark.remove();
+                    trailCount--;
+                }, spark.className === 'engraving-spark' ? 400 : 500);
+            }
+        }, 20));
+
+        const audioToggle = document.querySelector('.audio-toggle');
+        audioToggle.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                audioToggle.textContent = '♫';
+            } else {
+                audio.pause();
+                audioToggle.textContent = '♪';
+            }
+        });
+
+        const videos = document.querySelectorAll('.video-item video');
+        videos.forEach(video => {
+            video.addEventListener('play', () => {
+                audio.pause();
+            });
+            video.addEventListener('pause', () => {
+                audio.play();
+            });
+            video.addEventListener('ended', () => {
+                audio.play();
+            });
+        });
+
+        const seeMoreBtn = document.querySelector('.see-more-btn');
+        const hiddenVideos = document.querySelectorAll('.video-item.hidden');
+        seeMoreBtn.addEventListener('click', () => {
+            hiddenVideos.forEach(video => {
+                video.classList.remove('hidden');
+            });
+            seeMoreBtn.style.display = 'none';
+        });
+
+        VanillaTilt.init(document.querySelectorAll('.video-item'), {
+            max: 10,
+            speed: 400,
+            glare: true,
+            'max-glare': 0.4
+        });
+
+        const fullscreenViewer = document.querySelector('.fullscreen-viewer');
+        const fullscreenImage = fullscreenViewer.querySelector('img');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+
+        carouselItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                fullscreenImage.src = imgSrc;
+                fullscreenViewer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        fullscreenViewer.addEventListener('click', () => {
+            fullscreenViewer.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && fullscreenViewer.classList.contains('active')) {
+                fullscreenViewer.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         });
 
         const carousel = document.querySelector('.carousel');
@@ -746,41 +1336,62 @@
 
         window.addEventListener('resize', updateCarousel);
 
-        const seeMoreBtn = document.querySelector('.see-more-btn');
-        const hiddenVideos = [
-            '<div class="video-item"><video src="/PSE/Rosegold wine tumbler.mp4" controls muted poster="/PSE/Rosegold wine tumbler.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/This rose will last forever.mp4" controls muted poster="/PSE/This rose will last forever.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Stitch wrap around.mp4" controls muted poster="/PSE/Stitch wrap around.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Moon Fairie.mp4" controls muted poster="/PSE/Moon Fairie.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Diaries.mp4" controls muted poster="/PSE/Diaries.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Monster Jam.mp4" controls muted poster="/PSE/Monster Jam.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Double Dragon.mp4" controls muted poster="/PSE/Double Dragon.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Spooky.mp4" controls muted poster="/PSE/Spooky.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Box cutting and engraving.mp4" controls muted poster="/PSE/Box cutting and engraving.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Merry Christmas.mp4" controls muted poster="/PSE/Merry Christmas.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Fairytale.mp4" controls muted poster="/PSE/Fairytale.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Rosegold Paisley wrap around.mp4" controls muted poster="/PSE/Rosegold Paisley wrap around.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Custom 20oz Tumbler Birthday Gift.mp4" controls muted poster="/PSE/Custom 20oz Tumbler Birthday Gift.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Pretty Stitched Engraving video.mp4" controls muted poster="/PSE/Pretty Stitched Engraving video.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Corporate gifts 3.8l water bottle.mp4" controls muted poster="/PSE/Corporate gifts 3.8l water bottle.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/KTM birthday present.mp4" controls muted poster="/PSE/KTM birthday present.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Fitness Freaks.mp4" controls muted poster="/PSE/Fitness Freaks.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Orange Dragon.mp4" controls muted poster="/PSE/Orange Dragon.png" loading="lazy"></video></div>',
-            '<div class="video-item"><video src="/PSE/Wine tumbler.mp4" controls muted poster="/PSE/Wine tumbler.png" loading="lazy"></video></div>'
-        ];
-        seeMoreBtn.addEventListener('click', () => {
-            hiddenVideos.forEach(video => {
-                document.querySelector('.video-gallery').insertAdjacentHTML('beforeend', video);
+        function createLaserBeam() {
+            const beam = document.createElement('div');
+            beam.className = 'laser-beam';
+            const isVertical = Math.random() > 0.5;
+            if (isVertical) {
+                beam.classList.add('vertical');
+                beam.style.left = `${Math.random() * 100}vw`;
+                beam.style.top = '0';
+            } else {
+                beam.classList.add('horizontal');
+                beam.style.top = `${Math.random() * 100}vh`;
+                beam.style.left = '0';
+            }
+            document.body.appendChild(beam);
+            setTimeout(() => {
+                beam.remove();
+            }, 3000);
+        }
+
+        window.addEventListener('load', () => {
+            document.querySelector('.preloader').classList.add('hidden');
+            setInterval(() => {
+                if (Math.random() > 0.5) {
+                    createLaserBeam();
+                }
+            }, 1500);
+
+            const heroImage = document.getElementById('hero-image');
+            heroImage.addEventListener('load', () => {
+                heroImage.style.opacity = 1;
             });
-            seeMoreBtn.style.display = 'none';
+            heroImage.style.opacity = 0;
+            heroImage.src = '/PSE/pseLogoO.jpg';
         });
 
-        VanillaTilt.init(document.querySelectorAll('.video-item'), {
-            max: 10,
-            speed: 400,
-            glare: true,
-            'max-glare': 0.4
+        // Google Analytics Event Tracking for "Call Us" and "Contact" links
+        document.querySelectorAll('.contact-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const label = e.target.textContent.trim(); // e.g., "Call Us", "Email", etc.
+                gtag('event', 'click', {
+                    'event_category': 'Menu Interaction',
+                    'event_label': label,
+                    'value': 1
+                });
+            });
         });
+
+        // Track WhatsApp button clicks
+        document.querySelector('.whatsapp-button').addEventListener('click', () => {
+            gtag('event', 'click', {
+                'event_category': 'Menu Interaction',
+                'event_label': 'WhatsApp',
+                'value': 1
+            });
+        });
+
     </script>
 </body>
 </html>
