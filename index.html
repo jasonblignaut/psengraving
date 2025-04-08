@@ -240,9 +240,15 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: rgba(0, 170, 255, 0.3);
+            background: rgba(0, 170, 255, 0.3) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
             border: 1px solid var(--primary-color);
             box-shadow: 0 0 10px var(--primary-color);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .background-cube.show-logos div {
+            opacity: 0.8;
         }
 
         .background-cube .front { transform: translateZ(50px); }
@@ -609,12 +615,13 @@
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 2px var(--primary-color), 0 0 4px var(--secondary-color);
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px rgba(255, 255, 255, 0.8);
             z-index: 2;
             order: 1;
             margin-top: 4rem;
             letter-spacing: 2px;
             font-weight: 700;
+            box-shadow: 0 0 2px var(--primary-color);
         }
 
         .hero p {
@@ -628,6 +635,7 @@
             order: 3;
             letter-spacing: 1px;
             font-weight: 400;
+            box-shadow: 0 0 2px var(--primary-color);
         }
 
         .hero .cta-button {
@@ -1349,7 +1357,7 @@
                 if (video.paused) {
                     video.play().then(() => {
                         audio.pause();
-                    }).catch(error => console.warn("Video play failed:", error));
+            }).catch(error => console.warn("Video play failed:", error));
                 } else {
                     video.pause();
                 }
@@ -1494,6 +1502,11 @@
             heroImage.src = '/PSE/pseLogoO.jpg';
 
             document.querySelector('.hero').classList.add('visible');
+
+            // Show logos on cube after explosion
+            setTimeout(() => {
+                document.querySelector('.background-cube').classList.add('show-logos');
+            }, 5000); // Matches the 5s duration of explodeFade animation
         });
 
         document.querySelectorAll('.contact-links a, .whatsapp-button, .footer-links a').forEach(link => {
