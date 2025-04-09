@@ -264,8 +264,11 @@
         .background-cube .bottom { transform: rotateX(-90deg) translateZ(50px); }
 
         @keyframes rotateCube {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); }
+            0% { transform: rotateY(0deg) rotateX(-10deg); }
+            25% { transform: rotateY(90deg) rotateX(10deg); }
+            50% { transform: rotateY(180deg) rotateX(-10deg); }
+            75% { transform: rotateY(270deg) rotateX(10deg); }
+            100% { transform: rotateY(360deg) rotateX(-10deg); }
         }
 
         .background-fallback {
@@ -581,6 +584,17 @@
             100% { transform: scale(1) translateX(-50%) translateY(-50%); opacity: 0.2; }
         }
 
+        .hero .title-wrapper {
+            position: relative;
+            display: inline-flex;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            z-index: 2;
+            order: 1;
+            margin-bottom: 2rem;
+        }
+
         .hero .title-container {
             display: flex;
             flex-direction: row;
@@ -588,8 +602,6 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            order: 1;
-            margin-bottom: 2rem;
         }
 
         .hero .title-container span {
@@ -1157,10 +1169,12 @@
     </a>
     <button class="audio-toggle" title="Toggle Music" aria-label="Toggle Background Music">♫</button>
     <section class="hero" id="main-content">
-        <div class="title-container">
-            <span>Pretty</span>
-            <span>Stitched</span>
-            <span>Engraving</span>
+        <div class="title-wrapper">
+            <div class="title-container">
+                <span>Pretty</span>
+                <span>Stitched</span>
+                <span>Engraving</span>
+            </div>
         </div>
         <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo - Laser Engraving" id="hero-image" loading="eager">
         <a href="#products" class="cta-button">Explore Products</a>
@@ -1266,6 +1280,7 @@
 
         const audio = document.getElementById('bg-audio');
         audio.volume = 0.3;
+        let isBackgroundMusicStopped = false;
 
         const overlay = document.querySelector('.audio-overlay');
         const overlayButton = overlay.querySelector('button');
@@ -1373,6 +1388,7 @@
 
         const audioToggle = document.querySelector('.audio-toggle');
         audioToggle.addEventListener('click', () => {
+            if (isBackgroundMusicStopped) return; // Prevent toggling if music is stopped
             if (audio.paused) {
                 audio.play().catch(error => console.warn("Audio play failed:", error));
                 audioToggle.textContent = '♫';
@@ -1386,24 +1402,34 @@
         videos.forEach(video => {
             video.parentElement.addEventListener('click', () => {
                 if (video.paused) {
+                    // Ensure video plays immediately with audio
+                    video.muted = false; // Ensure video audio is not muted
                     video.play().then(() => {
+                        // Stop background music completely until page refresh
                         audio.pause();
+                        audio.currentTime = 0; // Reset background audio
+                        audio.loop = false; // Disable looping
+                        isBackgroundMusicStopped = true; // Flag to prevent resuming
+                        audioToggle.textContent = '♪'; // Update toggle icon
+                        audioToggle.style.opacity = '0.5'; // Visually indicate music is disabled
+                        audioToggle.style.pointerEvents = 'none'; // Disable toggle button
+                        console.log("Video started, background music stopped until page refresh");
                     }).catch(error => console.warn("Video play failed:", error));
                 } else {
                     video.pause();
                 }
             });
+
+            // Remove previous event listeners that resume background music
             video.addEventListener('play', () => {
-                audio.pause();
-            });
-            video.addEventListener('pause', () => {
-                if (!document.querySelector('.video-item video:not(:paused)')) {
-                    audio.play().catch(error => console.warn("Background audio resume failed:", error));
+                if (!isBackgroundMusicStopped) {
+                    audio.pause();
                 }
             });
-            video.addEventListener('ended', () => {
-                audio.play().catch(error => console.warn("Background audio resume failed:", error));
-            });
+
+            // Remove pause and ended event listeners that resume background music
+            video.removeEventListener('pause', () => {});
+            video.removeEventListener('ended', () => {});
         });
 
         const seeMoreBtn = document.querySelector('.see-more-btn');
