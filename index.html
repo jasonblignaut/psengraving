@@ -246,7 +246,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: rgba(0, 170, 255, 0.3) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
+            background: rgba(0, 170, 255, 0.3);
             border: 1px solid var(--primary-color);
             opacity: 0;
             transition: opacity 0.5s ease;
@@ -256,12 +256,30 @@
             opacity: 0.8;
         }
 
-        .background-cube .front { transform: translateZ(50px); }
-        .background-cube .back { transform: translateZ(-50px) rotateY(180deg); }
-        .background-cube .left { transform: rotateY(-90deg) translateZ(50px); }
-        .background-cube .right { transform: rotateY(90deg) translateZ(50px); }
-        .background-cube .top { transform: rotateX(90deg) translateZ(50px); }
-        .background-cube .bottom { transform: rotateX(-90deg) translateZ(50px); }
+        .background-cube .front {
+            background: rgba(0, 170, 255, 0.3) url('/PSE/engravedlogo.png') center/cover no-repeat;
+            transform: translateZ(50px);
+        }
+        .background-cube .back {
+            background: rgba(0, 170, 255, 0.3) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
+            transform: translateZ(-50px) rotateY(180deg);
+        }
+        .background-cube .left {
+            background: rgba(0, 170, 255, 0.3) url('/PSE/engravedlogo.png') center/cover no-repeat;
+            transform: rotateY(-90deg) translateZ(50px);
+        }
+        .background-cube .right {
+            background: rgba(0, 170, 255, 0.3) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
+            transform: rotateY(90deg) translateZ(50px);
+        }
+        .background-cube .top {
+            background: rgba(0, 170, 255, 0.3) url('/PSE/engravedlogo.png') center/cover no-repeat;
+            transform: rotateX(90deg) translateZ(50px);
+        }
+        .background-cube .bottom {
+            background: rgba(0, 170, 255, 0.3) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
+            transform: rotateX(-90deg) translateZ(50px);
+        }
 
         @keyframes rotateCube {
             0% { transform: rotateY(0deg) rotateX(-10deg); }
@@ -1301,6 +1319,18 @@
             setTimeout(() => {
                 document.querySelector('.background-cube').classList.add('show-logos');
             }, 5000);
+
+            // Option 2: Randomly switch between logos (commented out)
+            /*
+            const cubeFaces = document.querySelectorAll('.background-cube div');
+            const logos = ['/PSE/pseLogoO.jpg', '/PSE/engravedlogo.png'];
+            setInterval(() => {
+                cubeFaces.forEach(face => {
+                    const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+                    face.style.background = `rgba(0, 170, 255, 0.3) url('${randomLogo}') center/cover no-repeat`;
+                });
+            }, 5000); // Switch every 5 seconds to sync with rotation
+            */
         });
 
         const hamburger = document.querySelector('.hamburger');
@@ -1402,17 +1432,15 @@
         videos.forEach(video => {
             video.parentElement.addEventListener('click', () => {
                 if (video.paused) {
-                    // Ensure video plays immediately with audio
-                    video.muted = false; // Ensure video audio is not muted
+                    video.muted = false;
                     video.play().then(() => {
-                        // Stop background music completely until page refresh
                         audio.pause();
-                        audio.currentTime = 0; // Reset background audio
-                        audio.loop = false; // Disable looping
-                        isBackgroundMusicStopped = true; // Flag to prevent resuming
-                        audioToggle.textContent = '♪'; // Update toggle icon
-                        audioToggle.style.opacity = '0.5'; // Visually indicate music is disabled
-                        audioToggle.style.pointerEvents = 'none'; // Disable toggle button
+                        audio.currentTime = 0;
+                        audio.loop = false;
+                        isBackgroundMusicStopped = true;
+                        audioToggle.textContent = '♪';
+                        audioToggle.style.opacity = '0.5';
+                        audioToggle.style.pointerEvents = 'none';
                         console.log("Video started, background music stopped until page refresh");
                     }).catch(error => console.warn("Video play failed:", error));
                 } else {
@@ -1420,14 +1448,12 @@
                 }
             });
 
-            // Remove previous event listeners that resume background music
             video.addEventListener('play', () => {
                 if (!isBackgroundMusicStopped) {
                     audio.pause();
                 }
             });
 
-            // Remove pause and ended event listeners that resume background music
             video.removeEventListener('pause', () => {});
             video.removeEventListener('ended', () => {});
         });
