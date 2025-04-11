@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Laser Engraving and Laser Marking Specialist in South Africa. Custom laser cutting and engraving services by Pretty Stitched Engraving in Centurion. Personalized gifts, tumblers, and more—crafted with precision and artistry.">
-    <meta name="keywords" content="laser engraving, laser marking, custom engraving, laser cutting, personalized gifts, Pretty Stitched Engraving, Centurion, South Africa, laser art">
+    <meta name="description" content="Laser Engraving and Laser Marking Specialist in South Africa. Custom laser cutting and engraving services in Centurion. Personalized gifts, tumblers, and more—crafted with precision.">
+    <meta name="keywords" content="laser engraving, laser marking, custom laser engraving, laser cutting, personalized gifts, South Africa, Centurion">
     <meta name="author" content="Pretty Stitched Engraving">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Laser Engraving And Laser Marking Specialist South Africa">
-    <meta property="og:description" content="Custom laser engraving and marking services by Pretty Stitched Engraving in Centurion, South Africa. Personalized designs for gifts and more.">
+    <meta property="og:description" content="Expert laser engraving and marking services in Centurion, South Africa. Custom designs for gifts and more.">
     <meta property="og:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
     <meta property="og:url" content="https://engravinglaser.co.za">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Laser Engraving And Laser Marking Specialist South Africa">
-    <meta name="twitter:description" content="Custom laser engraving and marking services by Pretty Stitched Engraving in Centurion, South Africa. Personalized designs for gifts and more.">
+    <meta name="twitter:description" content="Expert laser engraving and marking services in Centurion, South Africa. Custom designs for gifts and more.">
     <meta name="twitter:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
     <link rel="icon" type="image/x-icon" href="/PSE/favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="/PSE/apple-icon-57x57.png">
@@ -47,12 +47,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Pretty Stitched Engraving",
+      "name": "Laser Engraving Specialist",
       "url": "https://engravinglaser.co.za",
       "logo": "https://engravinglaser.co.za/PSE/pseLogoO.jpg",
       "sameAs": [
@@ -65,8 +64,8 @@
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Pretty Stitched Engraving",
-      "description": "Laser Engraving and Laser Marking Specialist in South Africa. Custom laser cutting and engraving services in Centurion. Personalised Designs - You Say & We Do.",
+      "name": "Laser Engraving Specialist",
+      "description": "Premier Laser Engraving and Laser Marking Specialist in South Africa. Custom laser cutting and engraving services in Centurion.",
       "url": "https://engravinglaser.co.za",
       "telephone": "+27832227144",
       "address": {
@@ -78,12 +77,8 @@
         "addressCountry": "ZA"
       },
       "openingHours": "Mo-Fr 09:00-17:00",
-      "sameAs": [
-        "https://www.tiktok.com/@diedrake",
-        "https://www.facebook.com/share/1AGJEC1RfQ/?mibextid=wwXIfr"
-      ],
       "image": "https://engravinglaser.co.za/PSE/pseLogoO.jpg",
-      "keywords": "laser engraving, laser marking, custom engraving, laser cutting, personalised gifts, South Africa, Centurion",
+      "keywords": "laser engraving, laser marking, custom laser engraving, laser cutting, personalized gifts, South Africa, Centurion",
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": "-25.8603",
@@ -391,12 +386,24 @@
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease;
             animation: fadeOutLogo 1s ease-in-out forwards 15s;
+        }
+
+        .header-logo.visible {
+            opacity: 1;
         }
 
         @keyframes fadeOutLogo {
             0% { opacity: 1; }
-            100% { opacity: 0; display: none; }
+            100% { opacity: 0; }
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         nav {
@@ -620,6 +627,33 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
+        }
+
+        .hero img {
+            width: clamp(200px, 30vw, 250px);
+            height: clamp(200px, 30vw, 250px);
+            border: 3px solid var(--primary-color);
+            animation: glow 2s infinite alternate;
+            z-index: 2;
+            order: 2;
+            position: relative;
+            margin-bottom: 2rem;
+            will-change: transform, opacity;
+        }
+
+        .hero img.explode {
+            animation: glow 2s infinite alternate, explodeToHeader 2s ease-in forwards 3s;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 15px rgba(0, 170, 255, 0.5); }
+            100% { box-shadow: 0 0 25px rgba(0, 170, 255, 0.7); }
+        }
+
+        @keyframes explodeToHeader {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(0.24) translateX(-700%) translateY(-300%); opacity: 0; border-radius: 50%; }
         }
 
         .hero .cta-button {
@@ -1021,12 +1055,6 @@
         @media (min-width: 768px) {
             header {
                 padding: 1rem 2rem;
-                justify-content: center;
-            }
-
-            .header-logo {
-                position: absolute;
-                left: 1rem;
             }
 
             .hamburger {
@@ -1085,7 +1113,7 @@
     <a href="#main-content" class="skip-link">Skip to content</a>
     <div class="preloader"></div>
     <div class="audio-overlay">
-        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER WEBSITE</button>
+        <button aria-label="Enter Laser Engraving Experience and play background music">ENTER LASER ENGRAVING EXPERIENCE</button>
     </div>
     <div class="background">
         <video class="background-video" src="https://engravinglaser.co.za/PSE/loopinfinity.mp4" autoplay loop muted playsinline preload="auto"></video>
@@ -1096,14 +1124,16 @@
     </div>
     <audio id="bg-audio" src="/music/lofi.mp3" loop preload="auto" style="display: none;"></audio>
     <header>
-        <img src="/PSE/pseLogoO.jpg" alt="Pretty Stitched Engraving Logo" class="header-logo">
-        <div class="hamburger" role="button" aria-expanded="false" aria-label="Toggle navigation">☰</div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#products">Products</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <img src="/PSE/pseLogoO.jpg" alt="Laser Engraving Logo" class="header-logo">
+        <div class="nav-container">
+            <div class="hamburger" role="button" aria-expanded="false" aria-label="Toggle navigation">☰</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
     <a href="#" class="back-to-top" title="Back to Top" aria-label="Back to Top">↑</a>
     <a href="https://wa.me/27832227144" class="whatsapp-button" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
@@ -1113,33 +1143,33 @@
     <section class="hero" id="main-content">
         <div class="title-wrapper">
             <div class="title-container">
-                <span>Laser</span>
+                <span>Pretty</span>
+                <span>Stitched</span>
                 <span>Engraving</span>
-                <span>&</span>
-                <span>Marking</span>
             </div>
         </div>
-        <a href="#products" class="cta-button">Explore Products</a>
+        <img src="/PSE/pseLogoO.jpg" alt="Laser Engraving Logo" id="hero-image" loading="eager">
+        <a href="#products" class="cta-button">Explore Laser Engraving Products</a>
     </section>
     <section id="about" class="about">
         <div class="about-content">
             <div class="about-text">
-                <h2>About Us</h2>
-                <p>Pretty Stitched Engraving is South Africa’s premier laser engraving and marking specialist, based in Centurion. We specialize in creating personalized, high-quality engraved products that make perfect gifts for everyone.</p>
-                <p>Contact us at <a href="tel:+27832227144">0832227144</a> or <a href="mailto:prettystitchedengraving@gmail.com">prettystitchedengraving@gmail.com</a></p>
+                <h2>About Laser Engraving</h2>
+                <p>We specialize in creating personalized, high-quality laser-engraved products that make perfect gifts for everyone.</p>
+                <p>Contact us at 0832227144 or prettystitchedengraving@gmail.com</p>
             </div>
         </div>
     </section>
     <section id="products">
-        <h2>Our Products</h2>
+        <h2>Laser Engraving Products</h2>
         <div class="carousel-container">
             <div class="carousel">
-                <div class="carousel-item"><img src="/PSE/gallery1.jpg" alt="Custom Engraved Product 1 by Pretty Stitched Engraving" loading="lazy"></div>
-                <div class="carousel-item"><img src="/PSE/gallery2.jpg" alt="Custom Engraved Product 2 by Pretty Stitched Engraving" loading="lazy"></div>
-                <div class="carousel-item"><img src="/PSE/gallery3.jpg" alt="Custom Engraved Product 3 by Pretty Stitched Engraving" loading="lazy"></div>
-                <div class="carousel-item"><img src="/PSE/gallery4.jpg" alt="Custom Engraved Product 4 by Pretty Stitched Engraving" loading="lazy"></div>
-                <div class="carousel-item"><img src="/PSE/gallery5.jpg" alt="Custom Engraved Product 5 by Pretty Stitched Engraving" loading="lazy"></div>
-                <div class="carousel-item"><img src="/PSE/gallery6.jpg" alt="Custom Engraved Product 6 by Pretty Stitched Engraving" loading="lazy"></div>
+                <div class="carousel-item"><img src="/PSE/gallery1.jpg" alt="Custom Laser Engraved Product 1" loading="lazy"></div>
+                <div class="carousel-item"><img src="/PSE/gallery2.jpg" alt="Custom Laser Engraved Product 2" loading="lazy"></div>
+                <div class="carousel-item"><img src="/PSE/gallery3.jpg" alt="Custom Laser Engraved Product 3" loading="lazy"></div>
+                <div class="carousel-item"><img src="/PSE/gallery4.jpg" alt="Custom Laser Engraved Product 4" loading="lazy"></div>
+                <div class="carousel-item"><img src="/PSE/gallery5.jpg" alt="Custom Laser Engraved Product 5" loading="lazy"></div>
+                <div class="carousel-item"><img src="/PSE/gallery6.jpg" alt="Custom Laser Engraved Product 6" loading="lazy"></div>
             </div>
             <div class="carousel-controls">
                 <button class="prev" aria-label="Previous slide">←</button>
@@ -1182,7 +1212,7 @@
     </section>
     <section id="contact" class="contact">
         <h2>Get in Touch</h2>
-        <p>Reach out for custom orders or inquiries!</p>
+        <p>Ready to bring your vision to life? Contact us for custom laser engraving and marking services in South Africa!</p>
         <div class="contact-links">
             <a href="mailto:prettystitchedengraving@gmail.com">Email</a>
             <a href="tel:+27832227144">Call Us</a>
@@ -1192,7 +1222,7 @@
         </div>
     </section>
     <footer>
-        <p>© 2025 Pretty Stitched Engraving</p>
+        <p>© 2025 Laser Engraving Specialist</p>
         <p>5 Hilton Street, Centurion, South Africa, 0157</p>
         <div class="footer-links">
             <a href="mailto:prettystitchedengraving@gmail.com">Contact Us</a>
@@ -1220,281 +1250,182 @@
             retina_detect: true
         });
 
-        const audio = document.getElementById('bg-audio');
-        audio.volume = 0.3;
-        let isBackgroundMusicStopped = false;
+        document.addEventListener('DOMContentLoaded', () => {
+            const audioOverlay = document.querySelector('.audio-overlay');
+            const audioToggle = document.querySelector('.audio-toggle');
+            const bgAudio = document.getElementById('bg-audio');
+            const preloader = document.querySelector('.preloader');
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav');
+            const heroImage = document.getElementById('hero-image');
+            const headerLogo = document.querySelector('.header-logo');
+            const fullscreenViewer = document.querySelector('.fullscreen-viewer');
+            const fullscreenImg = fullscreenViewer.querySelector('img');
 
-        const overlay = document.querySelector('.audio-overlay');
-        const overlayButton = overlay.querySelector('button');
-        overlayButton.addEventListener('click', () => {
-            try {
-                audio.play().then(() => {
-                    console.log("Background audio started successfully");
-                }).catch(error => {
-                    console.warn("Background audio autoplay failed (likely browser policy):", error);
-                });
-            } catch (error) {
-                console.error("Error attempting to play audio:", error);
-            }
-            overlay.classList.add('hidden');
-            document.querySelector('.hero').style.opacity = 1;
-        });
-
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('nav');
-        hamburger.addEventListener('click', () => {
-            const isExpanded = nav.classList.toggle('active');
-            hamburger.textContent = isExpanded ? '✕' : '☰';
-            hamburger.setAttribute('aria-expanded', isExpanded);
-        });
-
-        nav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-                hamburger.textContent = '☰';
-                hamburger.setAttribute('aria-expanded', 'false');
+            audioOverlay.querySelector('button').addEventListener('click', () => {
+                audioOverlay.classList.add('hidden');
+                bgAudio.play();
             });
-        });
 
-        function throttle(func, limit) {
-            let inThrottle;
-            return function() {
-                if (!inThrottle) {
-                    func.apply(this, arguments);
-                    inThrottle = true;
-                    setTimeout(() => inThrottle = false, limit);
-                }
-            };
-        }
-
-        function debounce(func, wait) {
-            let timeout;
-            return function() {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => func.apply(this, arguments), wait);
-            };
-        }
-
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', throttle(() => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const background = document.querySelector('.background');
-            const fadeOutPoint = window.innerHeight * 0.5;
-            const opacity = Math.max(0, 1 - scrollTop / fadeOutPoint);
-            background.style.opacity = opacity;
-
-            if (scrollTop > lastScrollTop) {
-                document.querySelector('header').classList.add('hidden');
-            } else {
-                document.querySelector('header').classList.remove('hidden');
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-
-            const backToTop = document.querySelector('.back-to-top');
-            if (scrollTop > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-                    section.classList.add('visible');
-                }
-            });
-        }, 150));
-
-        let trailCount = 0;
-        const maxTrails = 20;
-        document.addEventListener('mousemove', throttle((e) => {
-            if (trailCount < maxTrails) {
-                const spark = document.createElement('div');
-                spark.className = Math.random() > 0.3 ? 'engraving-spark' : 'engraving-flare';
-                spark.style.left = `${e.clientX}px`;
-                spark.style.top = `${e.clientY}px`;
-                document.body.appendChild(spark);
-                trailCount++;
-                setTimeout(() => {
-                    spark.remove();
-                    trailCount--;
-                }, spark.className === 'engraving-spark' ? 300 : 400);
-            }
-        }, 50));
-
-        const audioToggle = document.querySelector('.audio-toggle');
-        audioToggle.addEventListener('click', () => {
-            if (isBackgroundMusicStopped) return;
-            if (audio.paused) {
-                audio.play().catch(error => console.warn("Audio play failed:", error));
-                audioToggle.textContent = '♫';
-            } else {
-                audio.pause();
-                audioToggle.textContent = '♪';
-            }
-        });
-
-        const videos = document.querySelectorAll('.video-item video');
-        videos.forEach(video => {
-            video.parentElement.addEventListener('click', () => {
-                if (video.paused) {
-                    video.muted = false;
-                    video.play().then(() => {
-                        audio.pause();
-                        audio.currentTime = 0;
-                        audio.loop = false;
-                        isBackgroundMusicStopped = true;
-                        audioToggle.textContent = '♪';
-                        audioToggle.style.opacity = '0.5';
-                        audioToggle.style.pointerEvents = 'none';
-                        console.log("Video started, background music stopped until page refresh");
-                    }).catch(error => console.warn("Video play failed:", error));
+            audioToggle.addEventListener('click', () => {
+                if (bgAudio.paused) {
+                    bgAudio.play();
+                    audioToggle.textContent = '♫';
                 } else {
-                    video.pause();
+                    bgAudio.pause();
+                    audioToggle.textContent = '♪';
                 }
             });
 
-            video.addEventListener('play', () => {
-                if (!isBackgroundMusicStopped) {
-                    audio.pause();
-                }
+            hamburger.addEventListener('click', () => {
+                const isExpanded = nav.classList.toggle('active');
+                hamburger.textContent = isExpanded ? '✕' : '☰';
+                hamburger.setAttribute('aria-expanded', isExpanded);
             });
 
-            video.removeEventListener('pause', () => {});
-            video.removeEventListener('ended', () => {});
-        });
-
-        const seeMoreBtn = document.querySelector('.see-more-btn');
-        const hiddenVideos = document.querySelectorAll('.video-item.hidden');
-        let showingAll = false;
-        seeMoreBtn.addEventListener('click', () => {
-            showingAll = !showingAll;
-            hiddenVideos.forEach(video => {
-                video.classList.toggle('hidden', !showingAll);
-            });
-            seeMoreBtn.textContent = showingAll ? 'See Less' : 'See More';
-        });
-
-        VanillaTilt.init(document.querySelectorAll('.video-item'), {
-            max: 8,
-            speed: 300,
-            glare: true,
-            'max-glare': 0.3
-        });
-
-        const fullscreenViewer = document.querySelector('.fullscreen-viewer');
-        const fullscreenImage = fullscreenViewer.querySelector('img');
-        const carouselItems = document.querySelectorAll('.carousel-item');
-
-        carouselItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const imgSrc = item.querySelector('img').src;
-                fullscreenImage.src = imgSrc;
-                fullscreenViewer.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        fullscreenViewer.addEventListener('click', () => {
-            fullscreenViewer.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && fullscreenViewer.classList.contains('active')) {
-                fullscreenViewer.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        const carousel = document.querySelector('.carousel');
-        const items = document.querySelectorAll('.carousel-item');
-        const prevBtn = document.querySelector('.prev');
-        const nextBtn = document.querySelector('.next');
-        let index = 0;
-        let visibleItems = 1;
-
-        function updateCarousel() {
-            const itemWidth = items[0].offsetWidth;
-            carousel.style.transform = `translateX(-${index * itemWidth}px)`;
-            visibleItems = window.innerWidth >= 768 ? 3 : 1;
-            prevBtn.disabled = index === 0;
-            nextBtn.disabled = index >= items.length - visibleItems;
-        }
-
-        nextBtn.addEventListener('click', () => {
-            if (index < items.length - visibleItems) {
-                index++;
-                updateCarousel();
-            }
-        });
-
-        prevBtn.addEventListener('click', () => {
-            if (index > 0) {
-                index--;
-                updateCarousel();
-            }
-        });
-
-        window.addEventListener('resize', debounce(updateCarousel, 100));
-
-        function createLaserBeam() {
-            const beam = document.createElement('div');
-            beam.className = 'laser-beam';
-            const isVertical = Math.random() > 0.5;
-            if (isVertical) {
-                beam.classList.add('vertical');
-                beam.style.left = `${Math.random() * 100}vw`;
-                beam.style.top = '0';
-            } else {
-                beam.classList.add('horizontal');
-                beam.style.top = `${Math.random() * 100}vh`;
-                beam.style.left = '0';
-            }
-            document.body.appendChild(beam);
-            setTimeout(() => {
-                beam.remove();
-            }, 2500);
-        }
-
-        const backgroundVideo = document.querySelector('.background-video');
-        const backgroundFallback = document.querySelector('.background-fallback');
-        backgroundVideo.addEventListener('error', (e) => {
-            console.error('Video failed to load:', e);
-            backgroundVideo.style.display = 'none';
-            backgroundFallback.style.display = 'block';
-        });
-        backgroundVideo.addEventListener('loadeddata', () => {
-            console.log('Video loaded successfully');
-            backgroundVideo.style.display = 'block';
-            backgroundFallback.style.display = 'none';
-        });
-        if (!backgroundVideo.playing) {
-            backgroundVideo.load();
-            backgroundVideo.play().catch(e => console.error('Autoplay failed:', e));
-        }
-
-        window.addEventListener('load', () => {
-            document.querySelector('.preloader').classList.add('hidden');
-            updateCarousel();
-            setInterval(() => {
-                if (Math.random() > 0.7) {
-                    createLaserBeam();
-                }
-            }, 2000);
-
-            document.querySelector('.hero').classList.add('visible');
-        });
-
-        document.querySelectorAll('.contact-links a, .whatsapp-button, .footer-links a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const label = e.target.textContent.trim() || e.target.getAttribute('title');
-                gtag('event', 'click', {
-                    'event_category': 'Interaction',
-                    'event_label': label,
-                    'value': 1
+            nav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    hamburger.textContent = '☰';
+                    hamburger.setAttribute('aria-expanded', 'false');
                 });
+            });
+
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    document.querySelector('header').classList.add('hidden');
+                } else {
+                    document.querySelector('header').classList.remove('hidden');
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+                const backToTop = document.querySelector('.back-to-top');
+                if (scrollTop > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            const carousel = document.querySelector('.carousel');
+            const items = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let index = 0;
+            let visibleItems = 1;
+
+            function updateCarousel() {
+                const itemWidth = items[0].offsetWidth;
+                carousel.style.transform = `translateX(-${index * itemWidth}px)`;
+                visibleItems = window.innerWidth >= 768 ? 3 : 1;
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index >= items.length - visibleItems;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (index < items.length - visibleItems) {
+                    index++;
+                    updateCarousel();
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (index > 0) {
+                    index--;
+                    updateCarousel();
+                }
+            });
+
+            window.addEventListener('resize', updateCarousel);
+
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imgSrc = item.querySelector('img').src;
+                    fullscreenImg.src = imgSrc;
+                    fullscreenViewer.classList.add('active');
+                });
+            });
+
+            fullscreenViewer.addEventListener('click', () => {
+                fullscreenViewer.classList.remove('active');
+            });
+
+            const seeMoreBtn = document.querySelector('.see-more-btn');
+            const hiddenVideos = document.querySelectorAll('.video-item.hidden');
+            let showingAll = false;
+            seeMoreBtn.addEventListener('click', () => {
+                showingAll = !showingAll;
+                hiddenVideos.forEach(video => {
+                    video.classList.toggle('hidden', !showingAll);
+                });
+                seeMoreBtn.textContent = showingAll ? 'See Less' : 'See More';
+            });
+
+            function createLaserBeam(x, y) {
+                const beam = document.createElement('div');
+                beam.classList.add('laser-beam');
+                if (Math.random() > 0.5) {
+                    beam.classList.add('horizontal');
+                    beam.style.top = `${y}px`;
+                } else {
+                    beam.classList.add('vertical');
+                    beam.style.left = `${x}px`;
+                }
+                document.body.appendChild(beam);
+                beam.addEventListener('animationend', () => beam.remove());
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                const spark = document.createElement('div');
+                spark.classList.add('engraving-spark');
+                spark.style.left = `${e.pageX}px`;
+                spark.style.top = `${e.pageY}px`;
+                document.body.appendChild(spark);
+                spark.addEventListener('animationend', () => spark.remove());
+
+                if (Math.random() < 0.2) {
+                    const flare = document.createElement('div');
+                    flare.classList.add('engraving-flare');
+                    flare.style.left = `${e.pageX}px`;
+                    flare.style.top = `${e.pageY}px`;
+                    document.body.appendChild(flare);
+                    flare.addEventListener('animationend', () => flare.remove());
+                }
+
+                if (Math.random() < 0.05) {
+                    createLaserBeam(e.pageX, e.pageY);
+                }
+            });
+
+            window.addEventListener('load', () => {
+                preloader.classList.add('hidden');
+                updateCarousel();
+
+                heroImage.classList.add('explode');
+                setTimeout(() => {
+                    headerLogo.classList.add('visible');
+                }, 5000);
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            VanillaTilt.init(document.querySelectorAll('.video-item'), {
+                max: 10,
+                speed: 400,
+                glare: true,
+                'max-glare': 0.2
             });
         });
     </script>
