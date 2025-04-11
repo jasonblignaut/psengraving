@@ -249,50 +249,59 @@
 
         .background-cube {
             position: absolute;
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             transform-style: preserve-3d;
-            transform: rotateY(45deg) rotateX(-10deg);
+            transform: rotateX(20deg) rotateY(20deg);
             will-change: transform;
+            transition: transform 0.1s ease-out;
         }
 
         .background-cube div {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: rgba(0, 170, 255, 0.3);
-            border: 1px solid var(--primary-color);
+            background: rgba(0, 170, 255, 0.2);
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 15px var(--primary-color), inset 0 0 10px var(--secondary-color);
             opacity: 0;
             transition: opacity 0.5s ease;
+            animation: cubePulse 3s infinite ease-in-out;
         }
 
         .background-cube.show-logos div {
-            opacity: 0.8;
+            opacity: 0.9;
+        }
+
+        @keyframes cubePulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 0.9; }
         }
 
         .background-cube .front {
-            background: rgba(0, 170, 255, 0.3) url('/PSE/engravedlogo.png') center/cover no-repeat;
-            transform: translateZ(50px);
+            background: rgba(0, 170, 255, 0.2) url('/PSE/engravedlogo.png') center/cover no-repeat;
+            transform: translateZ(60px);
         }
         .background-cube .back {
-            background: rgba(0, 170, 255, 0.3) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
-            transform: translateZ(-50px) rotateY(180deg);
+            background: rgba(0, 170, 255, 0.2) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
+            transform: translateZ(-60px) rotateY(180deg);
         }
         .background-cube .left {
-            background: rgba(0, 170, 255, 0.3) url('/PSE/engravedlogo.png') center/cover no-repeat;
-            transform: rotateY(-90deg) translateZ(50px);
+            background: rgba(0, 170, 255, 0.2) url('/PSE/engravedlogo.png') center/cover no-repeat;
+            transform: rotateY(-90deg) translateZ(60px);
         }
         .background-cube .right {
-            background: rgba(0, 170, 255, 0.3) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
-            transform: rotateY(90deg) translateZ(50px);
+            background: rgba(0, 170, 255, 0.2) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
+            transform: rotateY(90deg) translateZ(60px);
         }
         .background-cube .top {
-            background: rgba(0, 170, 255, 0.3) url('/PSE/engravedlogo.png') center/cover no-repeat;
-            transform: rotateX(90deg) translateZ(50px);
+            background: rgba(0, 170, 255, 0.2) url('/PSE/engravedlogo.png') center/cover no-repeat;
+            transform: rotateX(90deg) translateZ(60px);
         }
         .background-cube .bottom {
-            background: rgba(0, 170, 255, 0.3) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
-            transform: rotateX(-90deg) translateZ(50px);
+            background: rgba(0, 170, 255, 0.2) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
+            transform: rotateX(-90deg) translateZ(60px);
         }
 
         .background-fallback {
@@ -1160,7 +1169,7 @@
     <a href="#main-content" class="skip-link">Skip to content</a>
     <div class="preloader"></div>
     <div class="audio-overlay">
-        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER OUR WEBSITE</button>
+        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER PRETTY STITCHED ENGRAVING</button>
     </div>
     <div class="background">
         <video class="background-video" src="https://engravinglaser.co.za/PSE/loopinfinity.mp4" autoplay loop muted playsinline preload="auto"></video>
@@ -1363,12 +1372,22 @@
         }
 
         let lastScrollTop = 0;
+        let cubeRotationY = 20;
+        let cubeRotationX = 20;
+        const cube = document.querySelector('.background-cube');
+
         window.addEventListener('scroll', throttle(() => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const background = document.querySelector('.background');
             const fadeOutPoint = window.innerHeight * 0.5;
             const opacity = Math.max(0, 1 - scrollTop / fadeOutPoint);
             background.style.opacity = opacity;
+
+            // Interactive Cube Rotation
+            const scrollDelta = scrollTop - lastScrollTop;
+            cubeRotationY += scrollDelta * 0.5; // Rotate Y-axis based on scroll
+            cubeRotationX += scrollDelta * 0.3; // Rotate X-axis slightly for 3D effect
+            cube.style.transform = `rotateX(${cubeRotationX}deg) rotateY(${cubeRotationY}deg)`;
 
             if (scrollTop > lastScrollTop) {
                 document.querySelector('header').classList.add('hidden');
@@ -1391,7 +1410,7 @@
                     section.classList.add('visible');
                 }
             });
-        }, 150));
+        }, 50));
 
         let trailCount = 0;
         const maxTrails = 20;
