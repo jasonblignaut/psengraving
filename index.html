@@ -7,13 +7,13 @@
     <meta name="keywords" content="Laser Engraving, Custom Laser Engraving, Laser Cutting, Personalized Gifts, Custom Tumblers, Pretty Stitched Engraving, Centurion, South Africa, laser art">
     <meta name="author" content="Pretty Stitched Engraving">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Laser Engraving - Pretty Stitched Engraving">
+    <meta property="og:title" content="Laser Engraving And Laser Marking Specialist South Africa">
     <meta property="og:description" content="Expert laser engraving and cutting services in Centurion, South Africa. Personalized designs for gifts and more by Pretty Stitched Engraving.">
     <meta property="og:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
     <meta property="og:url" content="https://engravinglaser.co.za">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Laser Engraving - Pretty Stitched Engraving">
+    <meta name="twitter:title" content="Laser Engraving And Laser Marking Specialist South Africa">
     <meta name="twitter:description" content="Expert laser engraving and cutting services in Centurion, South Africa. Personalized designs for gifts and more by Pretty Stitched Engraving.">
     <meta name="twitter:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
     <link rel="icon" type="image/x-icon" href="/PSE/favicon.ico">
@@ -34,7 +34,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/PSE/ms-icon-144x144.png">
     <meta name="theme-color" content="#0d0d1b">
-    <title>Laser Engraving - Pretty Stitched Engraving</title>
+    <title>Laser Engraving And Laser Marking Specialist South Africa</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWZS8F10JE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -99,7 +99,7 @@
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-light: #ffffff;
             --text-muted: #e0e0e0;
-            --glow-intensity: 5px; /* Reduced glow intensity */
+            --glow-intensity: 5px;
         }
 
         * {
@@ -252,7 +252,7 @@
             width: 120px;
             height: 120px;
             transform-style: preserve-3d;
-            transform: rotateX(0deg) rotateY(0deg); /* Default: no rotation */
+            transform: rotateX(0deg) rotateY(0deg);
             will-change: transform;
             transition: transform 0.1s ease-out;
         }
@@ -263,7 +263,7 @@
             height: 100%;
             background: rgba(0, 170, 255, 0.2);
             border: 2px solid var(--primary-color);
-            box-shadow: 0 0 5px var(--primary-color), inset 0 0 3px var(--secondary-color); /* Reduced glow */
+            box-shadow: 0 0 5px var(--primary-color), inset 0 0 3px var(--secondary-color);
             opacity: 0;
             transition: opacity 0.5s ease;
             animation: cubePulse 3s infinite ease-in-out;
@@ -417,7 +417,7 @@
             backdrop-filter: blur(10px);
             padding: 1rem;
             display: flex;
- F           justify-content: center;
+            justify-content: center;
             align-items: center;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -592,14 +592,13 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 4rem 1rem;
+            padding: 2rem 1rem;
             position: relative;
             overflow: hidden;
             opacity: 0;
             animation: fadeIn 1.5s forwards 1s;
             z-index: 1;
             will-change: opacity, transform;
-            gap: 1rem; /* Added gap between elements */
         }
 
         .hero::before {
@@ -620,12 +619,13 @@
 
         .hero .title-wrapper {
             position: relative;
-            display: inline-flex;
+            display: flex;
+            justify-content: center;
             padding: 0.5rem 1rem;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             z-index: 2;
-            order: 1;
+            margin-bottom: 1.5rem;
         }
 
         .hero .title-container {
@@ -639,7 +639,7 @@
 
         .hero .title-container span {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.5rem, 6.5vw, 4rem); /* Slightly reduced base size for mobile */
+            font-size: clamp(1.5rem, 5vw, 4rem);
             background: linear-gradient(90deg, #00aaff, #ff00ff, #ffaa00, #00aaff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -653,14 +653,12 @@
         }
 
         .hero img {
-            width: clamp(150px, 30vw, 250px); /* Slightly smaller base size for mobile */
-            height: clamp(150px, 30vw, 250px);
+            width: clamp(150px, 25vw, 250px);
+            height: clamp(150px, 25vw, 250px);
             border: 3px solid var(--primary-color);
             animation: glow 2s infinite alternate;
             z-index: 2;
-            order: 2;
-            position: relative;
-            will-change: transform, opacity;
+            margin-bottom: 1.5rem;
         }
 
         .hero img.explode {
@@ -700,8 +698,8 @@
         }
 
         @keyframes glow {
-            0% { box-shadow: 0 0 10px rgba(0, 170, 255, 0.5); } /* Reduced logo glow */
-            100% { box-shadow: 0 0 15px rgba(0, 170, 255, 0.7); } /* Reduced logo glow */
+            0% { box-shadow: 0 0 10px rgba(0, 170, 255, 0.5); }
+            100% { box-shadow: 0 0 15px rgba(0, 170, 255, 0.7); }
         }
 
         @keyframes explodeFade {
@@ -724,7 +722,6 @@
             overflow: hidden;
             z-index: 2;
             font-size: clamp(1rem, 3vw, 1.5rem);
-            order: 3;
         }
 
         .hero .cta-button::before {
@@ -1108,23 +1105,28 @@
 
         @media (max-width: 767px) {
             .hero {
-                padding: 2rem 1rem; /* Reduced padding for mobile */
-                justify-content: flex-start; /* Align items to top */
-                height: auto; /* Allow height to adjust naturally */
-                min-height: 100vh; /* Ensure it still fills viewport */
+                padding: 1rem;
+                justify-content: center;
+                align-items: center;
             }
 
             .hero .title-wrapper {
-                margin-top: 2rem; /* Add space at the top */
-                margin-bottom: 1rem; /* Reduced margin to keep it above logo */
+                margin-bottom: 1rem;
+            }
+
+            .hero .title-container span {
+                font-size: clamp(1.2rem, 4vw, 2rem); /* Smaller text on mobile */
             }
 
             .hero img {
-                margin: 0; /* Remove bottom margin to reduce gap */
+                width: clamp(120px, 20vw, 200px); /* Smaller logo on mobile */
+                height: clamp(120px, 20vw, 200px);
+                margin-bottom: 1rem;
             }
 
             .hero .cta-button {
-                margin-top: 1rem; /* Add space below logo */
+                padding: 0.8rem 2rem;
+                font-size: clamp(0.9rem, 2.5vw, 1.2rem);
             }
         }
 
@@ -1190,7 +1192,7 @@
     <a href="#main-content" class="skip-link">Skip to content</a>
     <div class="preloader"></div>
     <div class="audio-overlay">
-        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER OUR WEBSITE</button>
+        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER PRETTY STITCHED ENGRAVING</button>
     </div>
     <div class="background">
         <video class="background-video" src="https://engravinglaser.co.za/PSE/loopinfinity.mp4" autoplay loop muted playsinline preload="auto"></video>
@@ -1393,8 +1395,8 @@
         }
 
         let lastScrollTop = 0;
-        let cubeRotationY = 0; // Default: no rotation
-        let cubeRotationX = 0; // Default: no rotation
+        let cubeRotationY = 0;
+        let cubeRotationX = 0;
         const cube = document.querySelector('.background-cube');
 
         window.addEventListener('scroll', throttle(() => {
@@ -1404,10 +1406,9 @@
             const opacity = Math.max(0, 1 - scrollTop / fadeOutPoint);
             background.style.opacity = opacity;
 
-            // Scroll-Triggered Cube Rotation
             const scrollDelta = scrollTop - lastScrollTop;
-            cubeRotationY += scrollDelta * 0.5; // Rotate Y-axis based on scroll
-            cubeRotationX += scrollDelta * 0.3; // Rotate X-axis slightly for 3D effect
+            cubeRotationY += scrollDelta * 0.5;
+            cubeRotationX += scrollDelta * 0.3;
             cube.style.transform = `rotateX(${cubeRotationX}deg) rotateY(${cubeRotationY}deg)`;
 
             if (scrollTop > lastScrollTop) {
@@ -1452,7 +1453,7 @@
 
         const audioToggle = document.querySelector('.audio-toggle');
         audioToggle.addEventListener('click', () => {
-            if (isBackgroundMusicStopped) return; // Prevent toggling if music is stopped
+            if (isBackgroundMusicStopped) return;
             if (audio.paused) {
                 audio.play().catch(error => console.warn("Audio play failed:", error));
                 audioToggle.textContent = '♫';
