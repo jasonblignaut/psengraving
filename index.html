@@ -252,7 +252,7 @@
             width: 120px;
             height: 120px;
             transform-style: preserve-3d;
-            transform: rotateX(20deg) rotateY(20deg);
+            transform: rotateX(0deg) rotateY(0deg); /* Default centered and aligned */
             will-change: transform;
             transition: transform 0.1s ease-out;
         }
@@ -1169,7 +1169,7 @@
     <a href="#main-content" class="skip-link">Skip to content</a>
     <div class="preloader"></div>
     <div class="audio-overlay">
-        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER PRETTY STITCHED ENGRAVING</button>
+        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER OUR WEBSITE</button>
     </div>
     <div class="background">
         <video class="background-video" src="https://engravinglaser.co.za/PSE/loopinfinity.mp4" autoplay loop muted playsinline preload="auto"></video>
@@ -1372,8 +1372,8 @@
         }
 
         let lastScrollTop = 0;
-        let cubeRotationY = 20;
-        let cubeRotationX = 20;
+        let cubeRotationY = 0; // Default: no rotation
+        let cubeRotationX = 0; // Default: no rotation
         const cube = document.querySelector('.background-cube');
 
         window.addEventListener('scroll', throttle(() => {
@@ -1383,7 +1383,7 @@
             const opacity = Math.max(0, 1 - scrollTop / fadeOutPoint);
             background.style.opacity = opacity;
 
-            // Interactive Cube Rotation
+            // Scroll-Triggered Cube Rotation
             const scrollDelta = scrollTop - lastScrollTop;
             cubeRotationY += scrollDelta * 0.5; // Rotate Y-axis based on scroll
             cubeRotationX += scrollDelta * 0.3; // Rotate X-axis slightly for 3D effect
