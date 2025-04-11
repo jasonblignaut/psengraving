@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pretty Stitched Engraving - Custom laser cutting and engraving services in South Africa. Personalized gifts, tumblers, and more—crafted with precision and artistry.">
-    <meta name="keywords" content="Laser Engraving, Custom Engraving, Laser Cutting, Personalized Gifts, Custom Tumblers, Pretty Stitched Engraving, Centurion, South Africa, laser art">
+    <meta name="description" content="Laser Engraving and Custom Laser Cutting Services in South Africa by Pretty Stitched Engraving. Personalized gifts, tumblers, and more—crafted with precision and artistry in Centurion.">
+    <meta name="keywords" content="Laser Engraving, Custom Laser Engraving, Laser Cutting, Personalized Gifts, Custom Tumblers, Pretty Stitched Engraving, Centurion, South Africa, laser art">
     <meta name="author" content="Pretty Stitched Engraving">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Pretty Stitched Engraving - Custom Laser Engraving & Cutting">
-    <meta property="og:description" content="Custom laser cutting and engraving services in Centurion, South Africa. Personalized designs for gifts and more.">
+    <meta property="og:title" content="Laser Engraving - Pretty Stitched Engraving">
+    <meta property="og:description" content="Expert laser engraving and cutting services in Centurion, South Africa. Personalized designs for gifts and more by Pretty Stitched Engraving.">
     <meta property="og:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
     <meta property="og:url" content="https://engravinglaser.co.za">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pretty Stitched Engraving - Custom Laser Engraving & Cutting">
-    <meta name="twitter:description" content="Custom laser cutting and engraving services in Centurion, South Africa. Personalized designs for gifts and more.">
+    <meta name="twitter:title" content="Laser Engraving - Pretty Stitched Engraving">
+    <meta name="twitter:description" content="Expert laser engraving and cutting services in Centurion, South Africa. Personalized designs for gifts and more by Pretty Stitched Engraving.">
     <meta name="twitter:image" content="https://engravinglaser.co.za/PSE/pseLogoO.jpg">
     <link rel="icon" type="image/x-icon" href="/PSE/favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="/PSE/apple-icon-57x57.png">
@@ -34,7 +34,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/PSE/ms-icon-144x144.png">
     <meta name="theme-color" content="#0d0d1b">
-    <title>Pretty Stitched Engraving - Custom Laser Engraving & Cutting</title>
+    <title>Laser Engraving - Pretty Stitched Engraving</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWZS8F10JE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -52,7 +52,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Pretty Stitched Engraving",
-      "description": "Custom laser cutting and engraving services in South Africa. Personalised Designs - You Say & We Do.",
+      "description": "Laser Engraving and Custom Laser Cutting Services in South Africa. Personalised Designs - You Say & We Do.",
       "url": "https://engravinglaser.co.za",
       "telephone": "+27832227144",
       "address": {
@@ -69,12 +69,26 @@
         "https://www.facebook.com/share/1AGJEC1RfQ/?mibextid=wwXIfr"
       ],
       "image": "https://engravinglaser.co.za/PSE/pseLogoO.jpg",
-      "keywords": "laser engraving, custom engraving, laser cutting, personalised gifts, South Africa",
+      "keywords": "laser engraving, custom laser engraving, laser cutting, personalised gifts, South Africa",
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": "-25.8603",
         "longitude": "28.1894"
       }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Laser Engraving",
+          "item": "https://engravinglaser.co.za"
+        }
+      ]
     }
     </script>
     <style>
@@ -238,7 +252,7 @@
             width: 100px;
             height: 100px;
             transform-style: preserve-3d;
-            animation: rotateCube 20s infinite ease-in-out;
+            transform: rotateY(45deg) rotateX(-10deg);
             will-change: transform;
         }
 
@@ -279,14 +293,6 @@
         .background-cube .bottom {
             background: rgba(0, 170, 255, 0.3) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
             transform: rotateX(-90deg) translateZ(50px);
-        }
-
-        @keyframes rotateCube {
-            0% { transform: rotateY(0deg) rotateX(-10deg); }
-            25% { transform: rotateY(90deg) rotateX(10deg); }
-            50% { transform: rotateY(180deg) rotateX(-10deg); }
-            75% { transform: rotateY(270deg) rotateX(10deg); }
-            100% { transform: rotateY(360deg) rotateX(-10deg); }
         }
 
         .background-fallback {
@@ -1319,18 +1325,6 @@
             setTimeout(() => {
                 document.querySelector('.background-cube').classList.add('show-logos');
             }, 5000);
-
-            // Option 2: Randomly switch between logos (commented out)
-            /*
-            const cubeFaces = document.querySelectorAll('.background-cube div');
-            const logos = ['/PSE/pseLogoO.jpg', '/PSE/engravedlogo.png'];
-            setInterval(() => {
-                cubeFaces.forEach(face => {
-                    const randomLogo = logos[Math.floor(Math.random() * logos.length)];
-                    face.style.background = `rgba(0, 170, 255, 0.3) url('${randomLogo}') center/cover no-repeat`;
-                });
-            }, 5000); // Switch every 5 seconds to sync with rotation
-            */
         });
 
         const hamburger = document.querySelector('.hamburger');
