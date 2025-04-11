@@ -252,7 +252,7 @@
             width: 120px;
             height: 120px;
             transform-style: preserve-3d;
-            transform: rotateX(0deg) rotateY(0deg); /* Default centered and aligned */
+            transform: rotateX(0deg) rotateY(0deg); /* Default: no rotation */
             will-change: transform;
             transition: transform 0.1s ease-out;
         }
@@ -417,7 +417,7 @@
             backdrop-filter: blur(10px);
             padding: 1rem;
             display: flex;
-            justify-content: center;
+ F           justify-content: center;
             align-items: center;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -592,13 +592,14 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem 1rem; /* Reduced padding on mobile */
+            padding: 4rem 1rem;
             position: relative;
             overflow: hidden;
             opacity: 0;
             animation: fadeIn 1.5s forwards 1s;
             z-index: 1;
             will-change: opacity, transform;
+            gap: 1rem; /* Added gap between elements */
         }
 
         .hero::before {
@@ -619,27 +620,26 @@
 
         .hero .title-wrapper {
             position: relative;
-            display: flex;
-            justify-content: center;
+            display: inline-flex;
             padding: 0.5rem 1rem;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             z-index: 2;
             order: 1;
-            margin-bottom: 1rem; /* Reduced margin on mobile */
         }
 
         .hero .title-container {
             display: flex;
-            flex-direction: column; /* Stack words vertically on mobile */
-            gap: 0.2rem; /* Reduced gap for tighter spacing */
+            flex-direction: row;
+            gap: 0.5rem;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
         }
 
         .hero .title-container span {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.5rem, 5vw, 4rem); /* Reduced min size for mobile */
+            font-size: clamp(1.5rem, 6.5vw, 4rem); /* Slightly reduced base size for mobile */
             background: linear-gradient(90deg, #00aaff, #ff00ff, #ffaa00, #00aaff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -653,15 +653,14 @@
         }
 
         .hero img {
-            width: clamp(150px, 25vw, 250px); /* Reduced min width for mobile */
-            height: clamp(150px, 25vw, 250px); /* Reduced min height for mobile */
+            width: clamp(150px, 30vw, 250px); /* Slightly smaller base size for mobile */
+            height: clamp(150px, 30vw, 250px);
             border: 3px solid var(--primary-color);
             animation: glow 2s infinite alternate;
             z-index: 2;
             order: 2;
             position: relative;
             will-change: transform, opacity;
-            margin-bottom: 1rem; /* Reduced margin on mobile */
         }
 
         .hero img.explode {
@@ -701,8 +700,8 @@
         }
 
         @keyframes glow {
-            0% { box-shadow: 0 0 10px rgba(0, 170, 255, 0.5); } /* Reduced glow */
-            100% { box-shadow: 0 0 15px rgba(0, 170, 255, 0.7); } /* Reduced glow */
+            0% { box-shadow: 0 0 10px rgba(0, 170, 255, 0.5); } /* Reduced logo glow */
+            100% { box-shadow: 0 0 15px rgba(0, 170, 255, 0.7); } /* Reduced logo glow */
         }
 
         @keyframes explodeFade {
@@ -714,7 +713,7 @@
         .hero .cta-button {
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 0.8rem 2rem; /* Reduced padding on mobile */
+            padding: 1rem 2.5rem;
             text-decoration: none;
             border-radius: 30px;
             font-family: 'Orbitron', sans-serif;
@@ -724,7 +723,7 @@
             position: relative;
             overflow: hidden;
             z-index: 2;
-            font-size: clamp(0.9rem, 2.5vw, 1.5rem); /* Reduced min size for mobile */
+            font-size: clamp(1rem, 3vw, 1.5rem);
             order: 3;
         }
 
@@ -1107,6 +1106,28 @@
             color: var(--secondary-color);
         }
 
+        @media (max-width: 767px) {
+            .hero {
+                padding: 2rem 1rem; /* Reduced padding for mobile */
+                justify-content: flex-start; /* Align items to top */
+                height: auto; /* Allow height to adjust naturally */
+                min-height: 100vh; /* Ensure it still fills viewport */
+            }
+
+            .hero .title-wrapper {
+                margin-top: 2rem; /* Add space at the top */
+                margin-bottom: 1rem; /* Reduced margin to keep it above logo */
+            }
+
+            .hero img {
+                margin: 0; /* Remove bottom margin to reduce gap */
+            }
+
+            .hero .cta-button {
+                margin-top: 1rem; /* Add space below logo */
+            }
+        }
+
         @media (min-width: 768px) {
             header {
                 padding: 1rem 2rem;
@@ -1130,27 +1151,7 @@
             }
 
             .hero {
-                padding: 5rem 3rem; /* Restore larger padding for desktop */
-            }
-
-            .hero .title-container {
-                flex-direction: row; /* Horizontal layout on desktop */
-                gap: 0.5rem;
-            }
-
-            .hero .title-container span {
-                font-size: clamp(2rem, 6.5vw, 4rem); /* Restore larger size for desktop */
-            }
-
-            .hero img {
-                width: clamp(200px, 30vw, 250px); /* Restore larger size for desktop */
-                height: clamp(200px, 30vw, 250px);
-                margin-bottom: 2rem;
-            }
-
-            .hero .cta-button {
-                padding: 1rem 2.5rem; /* Restore larger padding for desktop */
-                font-size: clamp(1rem, 3vw, 1.5rem);
+                padding: 5rem 3rem;
             }
 
             .carousel-item {
@@ -1189,7 +1190,7 @@
     <a href="#main-content" class="skip-link">Skip to content</a>
     <div class="preloader"></div>
     <div class="audio-overlay">
-        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER PRETTY STITCHED ENGRAVING</button>
+        <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER OUR WEBSITE</button>
     </div>
     <div class="background">
         <video class="background-video" src="https://engravinglaser.co.za/PSE/loopinfinity.mp4" autoplay loop muted playsinline preload="auto"></video>
