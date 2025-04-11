@@ -249,59 +249,68 @@
 
         .background-cube {
             position: absolute;
-            width: 120px;
-            height: 120px;
+            width: 150px; /* Slightly larger for visual impact */
+            height: 150px;
             transform-style: preserve-3d;
             transform: rotateX(0deg) rotateY(0deg);
             will-change: transform;
-            transition: transform 0.1s ease-out;
+            transition: transform 0.3s ease-out; /* Smoother transition */
+        }
+
+        .background-cube:hover {
+            animation: spinCube 4s infinite linear; /* Spin on hover */
+        }
+
+        @keyframes spinCube {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
         }
 
         .background-cube div {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: rgba(0, 170, 255, 0.2);
+            background: rgba(0, 170, 255, 0.3); /* Slightly more opaque */
             border: 2px solid var(--primary-color);
-            box-shadow: 0 0 5px var(--primary-color), inset 0 0 3px var(--secondary-color);
+            box-shadow: 0 0 10px var(--primary-color), inset 0 0 5px var(--secondary-color); /* Enhanced glow */
             opacity: 0;
             transition: opacity 0.5s ease;
             animation: cubePulse 3s infinite ease-in-out;
         }
 
         .background-cube.show-logos div {
-            opacity: 0.9;
+            opacity: 1; /* Full visibility when shown */
         }
 
         @keyframes cubePulse {
-            0% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.05); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 0.9; }
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         .background-cube .front {
-            background: rgba(0, 170, 255, 0.2) url('/PSE/engravedlogo.png') center/cover no-repeat;
-            transform: translateZ(60px);
+            background: linear-gradient(rgba(0, 170, 255, 0.3), rgba(0, 0, 0, 0.2)), url('/PSE/engravedlogo.png') center/cover no-repeat;
+            transform: translateZ(75px); /* Adjusted for new size */
         }
         .background-cube .back {
-            background: rgba(0, 170, 255, 0.2) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
-            transform: translateZ(-60px) rotateY(180deg);
+            background: linear-gradient(rgba(0, 170, 255, 0.3), rgba(0, 0, 0, 0.2)), url('/PSE/pseLogoO.jpg') center/cover no-repeat;
+            transform: translateZ(-75px) rotateY(180deg);
         }
         .background-cube .left {
-            background: rgba(0, 170, 255, 0.2) url('/PSE/engravedlogo.png') center/cover no-repeat;
-            transform: rotateY(-90deg) translateZ(60px);
+            background: linear-gradient(rgba(0, 170, 255, 0.3), rgba(0, 0, 0, 0.2)), url('/PSE/engravedlogo.png') center/cover no-repeat;
+            transform: rotateY(-90deg) translateZ(75px);
         }
         .background-cube .right {
-            background: rgba(0, 170, 255, 0.2) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
-            transform: rotateY(90deg) translateZ(60px);
+            background: linear-gradient(rgba(0, 170, 255, 0.3), rgba(0, 0, 0, 0.2)), url('/PSE/pseLogoO.jpg') center/cover no-repeat;
+            transform: rotateY(90deg) translateZ(75px);
         }
         .background-cube .top {
-            background: rgba(0, 170, 255, 0.2) url('/PSE/engravedlogo.png') center/cover no-repeat;
-            transform: rotateX(90deg) translateZ(60px);
+            background: linear-gradient(rgba(0, 170, 255, 0.3), rgba(0, 0, 0, 0.2)), url('/PSE/engravedlogo.png') center/cover no-repeat;
+            transform: rotateX(90deg) translateZ(75px);
         }
         .background-cube .bottom {
-            background: rgba(0, 170, 255, 0.2) url('/PSE/pseLogoO.jpg') center/cover no-repeat;
-            transform: rotateX(-90deg) translateZ(60px);
+            background: linear-gradient(rgba(0, 170, 255, 0.3), rgba(0, 0, 0, 0.2)), url('/PSE/pseLogoO.jpg') center/cover no-repeat;
+            transform: rotateX(-90deg) translateZ(75px);
         }
 
         .background-fallback {
@@ -1115,11 +1124,11 @@
             }
 
             .hero .title-container span {
-                font-size: clamp(1.2rem, 4vw, 2rem); /* Smaller text on mobile */
+                font-size: clamp(1.2rem, 4vw, 2rem);
             }
 
             .hero img {
-                width: clamp(120px, 20vw, 200px); /* Smaller logo on mobile */
+                width: clamp(120px, 20vw, 200px);
                 height: clamp(120px, 20vw, 200px);
                 margin-bottom: 1rem;
             }
@@ -1189,7 +1198,7 @@
 </head>
 <body>
     <div id="particles-js"></div>
-    <a href="#main-content" class="skip-link">Skip to content</a>
+    <a href="#main-content" class="skip-link">Pretty Stitched Engraving</a>
     <div class="preloader"></div>
     <div class="audio-overlay">
         <button aria-label="Enter Pretty Stitched Engraving and play background music">ENTER PRETTY STITCHED ENGRAVING</button>
@@ -1406,10 +1415,17 @@
             const opacity = Math.max(0, 1 - scrollTop / fadeOutPoint);
             background.style.opacity = opacity;
 
-            const scrollDelta = scrollTop - lastScrollTop;
-            cubeRotationY += scrollDelta * 0.5;
-            cubeRotationX += scrollDelta * 0.3;
-            cube.style.transform = `rotateX(${cubeRotationX}deg) rotateY(${cubeRotationY}deg)`;
+            // Reset cube to initial position when at the top
+            if (scrollTop <= 0) {
+                cubeRotationX = 0;
+                cubeRotationY = 0;
+                cube.style.transform = `rotateX(${cubeRotationX}deg) rotateY(${cubeRotationY}deg)`;
+            } else {
+                const scrollDelta = scrollTop - lastScrollTop;
+                cubeRotationY += scrollDelta * 0.5;
+                cubeRotationX += scrollDelta * 0.3;
+                cube.style.transform = `rotateX(${cubeRotationX}deg) rotateY(${cubeRotationY}deg)`;
+            }
 
             if (scrollTop > lastScrollTop) {
                 document.querySelector('header').classList.add('hidden');
